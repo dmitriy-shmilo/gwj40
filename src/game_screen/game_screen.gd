@@ -2,9 +2,22 @@ extends Node2D
 
 
 onready var _pause_container: ColorRect = $Gui/PauseContainer
+onready var _characters = [
+	$"YSort/Character1",
+	$"YSort/Character2"
+]
+
+var _selected_character: int = 0
 
 func _ready():
-	pass
+	_characters[_selected_character].selected = true
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("next_char"):
+		_characters[_selected_character].selected = false
+		_selected_character = (_selected_character + 1) % _characters.size()
+		_characters[_selected_character].selected = true
 
 
 func _unhandled_input(event):
