@@ -1,9 +1,9 @@
 extends StaticBody2D
 class_name InteractiveItem
 
-signal interaction_started(Node)
-signal interaction_finished(Node)
-signal interaction_stopped(Node)
+signal interaction_started(source)
+signal interaction_finished(source)
+signal interaction_stopped(source)
 
 export(float) var interaction_time = 5.0
 

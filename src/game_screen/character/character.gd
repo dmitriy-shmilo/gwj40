@@ -62,6 +62,10 @@ func set_interaction_progress_visible(value: bool) -> void:
 	_interaction_progress.visible = value
 
 
+func get_inventory() -> Array:
+	return _inventory
+
+
 func add_item(item_id: int) -> void:
 	_inventory.append(item_id)
 	emit_signal("inventory_changed", self, _inventory)
