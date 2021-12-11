@@ -1,13 +1,52 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://game_screen/game_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
 [ext_resource path="res://game_screen/character/character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://game_screen/interactive/dispencer1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://game_screen/interactive/dispencer2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game_screen/interactive/coffee_dispencer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game_screen/interactive/sugar_dispencer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game_screen/gui.gd" type="Script" id=6]
-[ext_resource path="res://game_screen/interactive/receiver1.tscn" type="PackedScene" id=7]
-[ext_resource path="res://game_screen/interactive/receiver2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/art/items.png" type="Texture" id=7]
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 150, 10 )
@@ -91,14 +130,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Inventory" type="Label" parent="Gui/Hud/Character1"]
+[node name="Inventory" type="HBoxContainer" parent="Gui/Hud/Character1"]
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "[]"
+margin_top = -8.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Item1" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 25 )
+
+[node name="Item2" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 26 )
+
+[node name="Item3" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 27 )
+
+[node name="Item4" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 28 )
+
+[node name="Item5" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 29 )
 
 [node name="Character2" type="Control" parent="Gui/Hud"]
 anchor_left = 1.0
@@ -117,31 +186,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Inventory" type="Label" parent="Gui/Hud/Character2"]
+[node name="Inventory" type="HBoxContainer" parent="Gui/Hud/Character2"]
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "[]"
+margin_top = -8.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Item1" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 30 )
+
+[node name="Item2" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 31 )
+
+[node name="Item3" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 32 )
+
+[node name="Item4" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 33 )
+
+[node name="Item5" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 34 )
+
 [node name="YSort" type="YSort" parent="."]
-
-[node name="Receiver1" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 183, 70 )
-
-[node name="Receiver2" parent="YSort/Receiver1" instance=ExtResource( 8 )]
-position = Vector2( -76, 29 )
-
-[node name="Dispencer1" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 62, 92 )
-
-[node name="Dispencer2" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 159, 109 )
-
-[node name="Dispencer3" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 103, 147 )
 
 [node name="Character1" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 72, 45 )
@@ -150,6 +234,12 @@ camera_node = NodePath("../../PlayerCamera")
 [node name="Character2" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 118, 42 )
 camera_node = NodePath("../../PlayerCamera")
+
+[node name="CoffeeDispencer" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 19, 81 )
+
+[node name="SugarDispencer" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 19, 63 )
 
 [node name="Top" type="StaticBody2D" parent="."]
 position = Vector2( 128, 0 )
