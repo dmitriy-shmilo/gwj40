@@ -1,6 +1,7 @@
 extends Node2D
+class_name GameScreen
 
-
+onready var _gui: Gui = $"Gui"
 onready var _pause_container: ColorRect = $Gui/PauseContainer
 onready var _characters = [
 	$"YSort/Character1",
@@ -10,6 +11,9 @@ onready var _characters = [
 var _selected_character: int = 0
 
 func _ready():
+	for c in _characters:
+		c.selected = false
+		c.connect("inventory_changed", self, "_on_character_inventory_changed")
 	_characters[_selected_character].selected = true
 
 
@@ -24,7 +28,12 @@ func _unhandled_input(event):
 	if event.is_action("system_pause"):
 		get_tree().paused = true
 		_pause_container.visible = true
-		
+
+
+func _on_character_inventory_changed(sender: Character, inventory: Array) -> void:
+	var index = _characters.find(sender)
+	assert(index > -1)
+	_gui.update_inventory(index, inventory)
 
 
 func _on_QuitButton_pressed():

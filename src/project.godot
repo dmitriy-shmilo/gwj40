@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/fader.gd"
 }, {
+"base": "Node2D",
+"class": "GameScreen",
+"language": "GDScript",
+"path": "res://game_screen/game_screen.gd"
+}, {
+"base": "Node",
+"class": "Gui",
+"language": "GDScript",
+"path": "res://game_screen/gui.gd"
+}, {
 "base": "CharacterState",
 "class": "IdleState",
 "language": "GDScript",
@@ -89,6 +99,8 @@ _global_script_class_icons={
 "CharacterState": "",
 "CreditsScene": "",
 "Fader": "",
+"GameScreen": "",
+"Gui": "",
 "IdleState": "",
 "InteractingState": "",
 "InteractiveDispencer": "",

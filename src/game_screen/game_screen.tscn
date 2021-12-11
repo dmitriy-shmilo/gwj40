@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game_screen/game_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
 [ext_resource path="res://game_screen/character/character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game_screen/interactive/dispencer1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game_screen/interactive/dispencer2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game_screen/gui.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 150, 10 )
@@ -13,6 +14,7 @@ extents = Vector2( 150, 10 )
 script = ExtResource( 1 )
 
 [node name="Gui" type="Node" parent="."]
+script = ExtResource( 6 )
 
 [node name="PauseContainer" type="ColorRect" parent="Gui"]
 visible = false
@@ -63,6 +65,34 @@ margin_left = 242.0
 margin_right = 328.0
 margin_bottom = 20.0
 text = "ui_continue"
+
+[node name="Hud" type="Control" parent="Gui"]
+anchor_right = 1.0
+margin_bottom = 30.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character1" type="Control" parent="Gui/Hud"]
+anchor_bottom = 1.0
+margin_right = 128.0
+
+[node name="ColorRect" type="ColorRect" parent="Gui/Hud/Character1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="Label" parent="Gui/Hud/Character1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "123"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="YSort" type="YSort" parent="."]
 

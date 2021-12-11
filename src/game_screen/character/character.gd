@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Character
 
+signal inventory_changed(character, inventory)
+
 const PROGRESS_BAR_MULTIPLIER = 10.0
 
 export(float) var speed = 100.0
@@ -62,7 +64,9 @@ func set_interaction_progress_visible(value: bool) -> void:
 
 func add_item(item_id: int) -> void:
 	_inventory.append(item_id)
+	emit_signal("inventory_changed", self, _inventory)
 
 
 func clear_inventory() -> void:
 	_inventory.clear()
+	emit_signal("inventory_changed", self, _inventory)
