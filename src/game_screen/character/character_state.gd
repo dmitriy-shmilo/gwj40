@@ -1,8 +1,6 @@
 extends State
 class_name CharacterState
 
-const MOVEMENT_ACTIONS = ["down", "up", "left", "right"]
-
 var _character: Character
 
 func _ready() -> void:

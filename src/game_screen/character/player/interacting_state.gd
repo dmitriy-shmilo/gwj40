@@ -1,4 +1,4 @@
-extends CharacterState
+extends PlayerState
 class_name InteractingState
 
 

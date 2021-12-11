@@ -1,13 +1,13 @@
-extends CharacterState
-class_name MovingState
+extends PlayerState
+class_name PlayerMovingState
 
 func process(delta: float) -> void:
-	if not _character.selected:
+	if not _player.selected:
 		_transition("IdleState")
 		return
 
 	if Input.is_action_just_pressed("interact"):
-		var interactive = _character.get_interactive()
+		var interactive = _player.get_interactive()
 		if interactive != null:
 			_transition("InteractingState", { "target" : interactive })
 			return
@@ -21,6 +21,6 @@ func process(delta: float) -> void:
 		_transition("IdleState")
 		return
 
-	_character.direction = direction
-	_character.current_animation = "run"
-	_character.move_and_slide(direction * _character.speed)
+	_player.direction = direction
+	_player.current_animation = "run"
+	_player.move_and_slide(direction * _player.speed)

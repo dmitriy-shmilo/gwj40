@@ -30,7 +30,7 @@ func _unhandled_input(event):
 		_pause_container.visible = true
 
 
-func _on_character_inventory_changed(sender: Character, inventory: Array) -> void:
+func _on_character_inventory_changed(sender: Player, inventory: Array) -> void:
 	var index = _characters.find(sender)
 	assert(index > -1)
 	_gui.update_inventory(index, inventory)
