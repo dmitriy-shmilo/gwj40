@@ -64,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game_screen/interactive/interactive_receiver.gd"
 }, {
+"base": "Resource",
+"class": "Item",
+"language": "GDScript",
+"path": "res://game_screen/item/item.gd"
+}, {
 "base": "Button",
 "class": "KeyBindingButton",
 "language": "GDScript",
@@ -111,6 +116,7 @@ _global_script_class_icons={
 "InteractiveDispencer": "",
 "InteractiveItem": "",
 "InteractiveReceiver": "",
+"Item": "",
 "KeyBindingButton": "",
 "MovingState": "",
 "SettingsScene": "",
@@ -217,5 +223,5 @@ translations=PoolStringArray( "res://tr_keys.en.translation", "res://tr_keys.ru.
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.380392, 0.294118, 0.235294, 1 )
 environment/default_environment="res://default_env.tres"

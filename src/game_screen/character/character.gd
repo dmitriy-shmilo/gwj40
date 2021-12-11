@@ -68,8 +68,8 @@ func get_inventory() -> Array:
 	return _inventory
 
 
-func add_item(item_id: int) -> void:
-	_inventory.append(item_id)
+func add_item(item: Resource) -> void:
+	_inventory.append(item)
 	emit_signal("inventory_changed", self, _inventory)
 
 
