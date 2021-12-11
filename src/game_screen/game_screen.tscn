@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game_screen/game_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
-[ext_resource path="res://game_screen/character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/art/ui.png" type="Texture" id=4]
-
-[sub_resource type="CircleShape2D" id=25]
-radius = 7.0
+[ext_resource path="res://game_screen/character/character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game_screen/interactive_item.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 150, 10 )
@@ -73,31 +70,11 @@ text = "ui_continue"
 [node name="Character2" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 118, 42 )
 
-[node name="Interactable" type="StaticBody2D" parent="YSort"]
-position = Vector2( 97, 80 )
-collision_layer = 2
-collision_mask = 0
+[node name="InteractiveItem" parent="YSort" instance=ExtResource( 4 )]
 
-[node name="BodySprite" type="Sprite" parent="YSort/Interactable"]
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 16, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Interactable"]
-shape = SubResource( 25 )
-
-[node name="Interactable2" type="StaticBody2D" parent="YSort"]
-position = Vector2( 142, 109 )
-collision_layer = 2
-collision_mask = 0
-
-[node name="BodySprite" type="Sprite" parent="YSort/Interactable2"]
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 16, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Interactable2"]
-shape = SubResource( 25 )
+[node name="InteractiveItem2" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 142, 113 )
+interaction_time = 10.0
 
 [node name="Top" type="StaticBody2D" parent="."]
 position = Vector2( 128, 0 )
