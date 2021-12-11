@@ -2,7 +2,8 @@ extends Node
 class_name Gui
 
 onready var _inventories: = [
-	$"Hud/Character1/Inventory"
+	$"Hud/Character1/Inventory",
+	$"Hud/Character2/Inventory"
 ]
 
 func update_inventory(index: int, inventory: Array) -> void:

@@ -18,12 +18,12 @@ onready var _animation_state: AnimationNodeStateMachinePlayback = _animation_tre
 onready var _interaction_area: Area2D = $"InteractionArea"
 onready var _interaction_progress: TextureProgress = $"Node2D/InteractionProgress"
 onready var _camera_transform: RemoteTransform2D = $"CameraTransform"
+onready var _character_state: StateMachine = $"CharacterState"
 
 var _inventory: Array = []
 
 func _ready() -> void:
 	_selection_indicator.visible = selected
-	_animation_state.travel(current_animation)
 	_camera_transform.remote_path = "../" + camera_node
 	_camera_transform.update_position = selected
 
@@ -39,9 +39,6 @@ func set_selected(value: bool) -> void:
 	selected = value
 	if not is_inside_tree():
 		return
-
-	if not selected:
-		_animation_state.travel("idle")
 
 	_selection_indicator.visible = selected
 	_camera_transform.update_position = selected

@@ -79,6 +79,9 @@ __meta__ = {
 [node name="Character1" type="Control" parent="Gui/Hud"]
 anchor_bottom = 1.0
 margin_right = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="Gui/Hud/Character1"]
 anchor_right = 1.0
@@ -89,6 +92,32 @@ __meta__ = {
 }
 
 [node name="Inventory" type="Label" parent="Gui/Hud/Character1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "[]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character2" type="Control" parent="Gui/Hud"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Gui/Hud/Character2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.705882, 0.705882, 0.705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="Label" parent="Gui/Hud/Character2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
