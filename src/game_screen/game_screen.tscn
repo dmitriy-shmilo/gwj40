@@ -151,6 +151,7 @@ shape = SubResource( 24 )
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 current = true
+smoothing_enabled = true
 
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
