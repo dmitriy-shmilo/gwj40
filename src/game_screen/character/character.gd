@@ -10,18 +10,22 @@ export(bool) var selected = false setget set_selected
 export(Vector2) var direction = Vector2.ZERO setget set_direction
 export(String) var current_animation = "idle" setget set_current_animation
 export(bool) var interaction_progress_visible = false setget set_interaction_progress_visible
+export(NodePath) var camera_node = NodePath()
 
 onready var _selection_indicator: Sprite = $"SelectionIndicator"
 onready var _animation_tree: AnimationTree = $"BodyAnimationTree"
 onready var _animation_state: AnimationNodeStateMachinePlayback = _animation_tree.get("parameters/playback")
 onready var _interaction_area: Area2D = $"InteractionArea"
 onready var _interaction_progress: TextureProgress = $"Node2D/InteractionProgress"
+onready var _camera_transform: RemoteTransform2D = $"CameraTransform"
 
 var _inventory: Array = []
 
 func _ready() -> void:
 	_selection_indicator.visible = selected
 	_animation_state.travel(current_animation)
+	_camera_transform.remote_path = "../" + camera_node
+	_camera_transform.update_position = selected
 
 
 func get_interactive() -> Node:
@@ -40,6 +44,7 @@ func set_selected(value: bool) -> void:
 		_animation_state.travel("idle")
 
 	_selection_indicator.visible = selected
+	_camera_transform.update_position = selected
 
 
 func set_direction(dir: Vector2) -> void:

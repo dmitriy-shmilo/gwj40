@@ -13,7 +13,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="InteractiveDispencer" parent="." instance=ExtResource( 1 )]
-interaction_time = 3.0
+interaction_time = 2.0
 item_id = 2
 
 [node name="Label" type="Label" parent="."]

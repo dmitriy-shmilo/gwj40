@@ -533,3 +533,5 @@ nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CameraTransform" type="RemoteTransform2D" parent="."]

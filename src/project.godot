@@ -217,4 +217,5 @@ translations=PoolStringArray( "res://tr_keys.en.translation", "res://tr_keys.ru.
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
