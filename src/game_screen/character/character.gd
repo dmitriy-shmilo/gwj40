@@ -5,11 +5,13 @@ export(float) var speed = 100.0
 export(bool) var selected = false setget set_selected
 export(Vector2) var direction = Vector2.ZERO setget set_direction
 export(String) var current_animation = "idle" setget set_current_animation
+export(bool) var interaction_progress_visible = false setget set_interaction_progress_visible
 
 onready var _selection_indicator: Sprite = $"SelectionIndicator"
 onready var _animation_tree: AnimationTree = $"BodyAnimationTree"
 onready var _animation_state: AnimationNodeStateMachinePlayback = _animation_tree.get("parameters/playback")
 onready var _interaction_area: Area2D = $"InteractionArea"
+onready var _interaction_progress: TextureProgress = $"Node2D/InteractionProgress"
 
 func _ready() -> void:
 	_selection_indicator.visible = selected
@@ -43,3 +45,12 @@ func set_direction(dir: Vector2) -> void:
 func set_current_animation(name: String) -> void:
 	current_animation = name
 	_animation_state.travel(name)
+
+
+func set_interaction_progress(current: float, total: float) -> void:
+	_interaction_progress.value = current
+	_interaction_progress.max_value = total
+
+
+func set_interaction_progress_visible(value: bool) -> void:
+	_interaction_progress.visible = value
