@@ -16,10 +16,14 @@ func enter(args = {}) -> void:
 	
 	_character.interaction_progress_visible = true
 	_current_progress = 0
-	_target.interact_start(_character)
-	_total_progress = _target.interaction_time
+
 	_character.direction = (_target.global_position - _character.global_position).normalized()
-	_character.current_animation = "idle"
+	if _target.can_interact(_character):
+		_target.interact_start(_character)
+		_total_progress = _target.interaction_time
+		_character.current_animation = "idle"
+	else:
+		_transition("IdleState")
 
 
 func exit() -> void:

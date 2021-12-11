@@ -7,6 +7,10 @@ signal interaction_stopped(source)
 
 export(float) var interaction_time = 5.0
 
+func can_interact(source: Node) -> bool:
+	return true
+
+
 func interact_start(source: Node) -> void:
 	emit_signal("interaction_started", source)
 
