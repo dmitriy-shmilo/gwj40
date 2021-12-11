@@ -3,6 +3,7 @@ class_name MovingState
 
 func process(delta: float) -> void:
 	if not _character.selected:
+		_transition("IdleState")
 		return
 
 	if Input.is_action_just_pressed("interact"):
