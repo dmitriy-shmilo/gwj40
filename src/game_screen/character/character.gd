@@ -13,6 +13,8 @@ onready var _animation_state: AnimationNodeStateMachinePlayback = _animation_tre
 onready var _interaction_area: Area2D = $"InteractionArea"
 onready var _interaction_progress: TextureProgress = $"Node2D/InteractionProgress"
 
+var _inventory: Array = []
+
 func _ready() -> void:
 	_selection_indicator.visible = selected
 	_animation_state.travel(current_animation)
@@ -54,3 +56,12 @@ func set_interaction_progress(current: float, total: float) -> void:
 
 func set_interaction_progress_visible(value: bool) -> void:
 	_interaction_progress.visible = value
+
+
+func add_item(item_id: int) -> void:
+	_inventory.append(item_id)
+	print("Item added. ", _inventory)
+
+
+func clear_inventory() -> void:
+	_inventory.clear()
