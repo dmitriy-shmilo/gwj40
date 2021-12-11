@@ -39,10 +39,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game_screen/character/interacting_state.gd"
 }, {
+"base": "InteractiveItem",
+"class": "InteractiveDispencer",
+"language": "GDScript",
+"path": "res://game_screen/interactive/interactive_dispencer.gd"
+}, {
 "base": "StaticBody2D",
 "class": "InteractiveItem",
 "language": "GDScript",
-"path": "res://game_screen/interactive_item.gd"
+"path": "res://game_screen/interactive/interactive_item.gd"
 }, {
 "base": "Button",
 "class": "KeyBindingButton",
@@ -86,6 +91,7 @@ _global_script_class_icons={
 "Fader": "",
 "IdleState": "",
 "InteractingState": "",
+"InteractiveDispencer": "",
 "InteractiveItem": "",
 "KeyBindingButton": "",
 "MovingState": "",
