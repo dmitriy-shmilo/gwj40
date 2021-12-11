@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Character
 
+const PROGRESS_BAR_MULTIPLIER = 10.0
+
 export(float) var speed = 100.0
 export(bool) var selected = false setget set_selected
 export(Vector2) var direction = Vector2.ZERO setget set_direction
@@ -50,8 +52,8 @@ func set_current_animation(name: String) -> void:
 
 
 func set_interaction_progress(current: float, total: float) -> void:
-	_interaction_progress.value = current
-	_interaction_progress.max_value = total
+	_interaction_progress.value = current * PROGRESS_BAR_MULTIPLIER
+	_interaction_progress.max_value = total * PROGRESS_BAR_MULTIPLIER
 
 
 func set_interaction_progress_visible(value: bool) -> void:
@@ -60,7 +62,6 @@ func set_interaction_progress_visible(value: bool) -> void:
 
 func add_item(item_id: int) -> void:
 	_inventory.append(item_id)
-	print("Item added. ", _inventory)
 
 
 func clear_inventory() -> void:
