@@ -15,10 +15,13 @@ func set_can_receive(value: bool) -> void:
 
 
 func enter(seat: Seat) -> void:
-	_character_state.transition("EnteringState", { "seat" : seat })
+	current_seat = seat
+	current_seat.is_busy = true
+	_character_state.transition("EnteringState")
 
 
 func leave() -> void:
+	current_seat.is_busy = false
 	_character_state.transition("LeavingState")
 
 

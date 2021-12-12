@@ -5,7 +5,6 @@ var _current_path_point: int = 0
 var _path: PoolVector2Array
 
 func enter(args: Dictionary = {}) -> void:
-	_customer.current_seat = args.get("seat")
 	assert(_customer.current_seat != null, "When entering, customer must have a seat assigned")
 	_path = _customer.current_seat.get_path_points()
 	_current_path_point = 0
