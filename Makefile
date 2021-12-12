@@ -1,6 +1,6 @@
 NAME_OVERRIDE :=
 PROJECT_NAME = $(or $(NAME_OVERRIDE), $(notdir $(CURDIR)))
-GODOT = "godot"
+GODOT = "/Applications/Godot3.3.app/Contents/MacOS/Godot"
 
 all: icon html mac linux windows
 
