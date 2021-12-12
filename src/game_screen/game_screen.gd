@@ -6,7 +6,6 @@ const CUSTOMER = preload("res://game_screen/character/customer/customer.tscn")
 onready var _gui: Gui = $"Gui"
 onready var _space: YSort = $"YSort"
 onready var _entry_point = $"YSort/Entry"
-onready var _pause_container: ColorRect = $Gui/PauseContainer
 onready var _characters = [
 	$"YSort/Character1",
 	$"YSort/Character2"
@@ -25,6 +24,7 @@ onready var _seats = [
 	$"YSort/Seat4"
 ]
 
+var _current_cash: float = 0.0
 var _selected_character: int = 0
 
 func _ready():
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 func _unhandled_input(event):
 	if event.is_action("system_pause"):
 		get_tree().paused = true
-		_pause_container.visible = true
+		_gui.pause()
 
 
 func create_customer(seat: Seat) -> void:
@@ -63,14 +63,14 @@ func _on_character_inventory_changed(sender: Player, inventory: Array) -> void:
 
 
 func _on_QuitButton_pressed():
-	_pause_container.visible = false
+	_gui.unpause()
 	get_tree().paused = false
 	var err = get_tree().change_scene("res://title_screen/title_screen.tscn")
 	ErrorHandler.handle(err)
 
 
 func _on_ContinueButton_pressed():
-	_pause_container.visible = false
+	_gui.unpause()
 	get_tree().paused = false
 
 
