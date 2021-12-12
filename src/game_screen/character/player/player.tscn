@@ -522,6 +522,7 @@ position = Vector2( 0, -10 )
 z_index = 1000
 
 [node name="InteractionProgress" type="TextureProgress" parent="Node2D"]
+visible = false
 margin_left = 9.0
 margin_top = -13.0
 margin_right = 10.0

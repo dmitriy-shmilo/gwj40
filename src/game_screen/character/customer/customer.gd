@@ -1,17 +1,12 @@
 extends Character
 class_name Customer
 
-export(bool) var can_receive = true setget set_can_receive
-
 var current_seat: Seat = null
+var current_order: Array = []
 
 onready var _tween: Tween = $"Tween"
 onready var _heart: Sprite = $"Heart"
 onready var _receiver: InteractiveReceiver = $"Receiver"
-
-
-func set_can_receive(value: bool) -> void:
-	_receiver.is_active = value
 
 
 func enter(seat: Seat) -> void:
@@ -20,17 +15,21 @@ func enter(seat: Seat) -> void:
 	_character_state.transition("EnteringState")
 
 
-func leave() -> void:
-	current_seat.is_busy = false
-	_character_state.transition("LeavingState")
-
-
-func _on_InteractiveReceiver_interaction_finished(source) -> void:
-	if source.get_inventory().size() == 0:
-		return
+# TODO: pass different moods here
+func show_mood() -> void:
 	_tween.interpolate_property(_heart, "modulate:a", 0, 1.0, 0.25)
 	_tween.interpolate_property(_heart, "position", Vector2.ZERO, Vector2(0, -16), 0.25)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
 	_heart.modulate.a = 0
-	leave()
+
+
+func _on_InteractiveReceiver_interaction_finished(source) -> void:
+	var player = source as Player
+	assert(player != null, "Only players can interact with customers")
+	_character_state._state.interact(player)
+
+
+func _on_CharacterState_state_changed(old_state, new_state) -> void:
+	_receiver.is_active = new_state.is_interactive()
+	_receiver.interaction_time = new_state.interaction_time()

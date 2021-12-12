@@ -1,6 +1,8 @@
 extends Node
 class_name StateMachine
 
+signal state_changed(old_state, new_state)
+
 export(NodePath) var initial_state = NodePath()
 onready var _state: State = get_node(initial_state)
 
@@ -23,8 +25,9 @@ func transition(state: String, args: Dictionary = {}) -> bool:
 			print("Can't transition to ", state) # TODO: logger with a tag
 		return false
 
-	_state.exit()
+	var old_state = _state
+	old_state.exit()
 	_state = get_node(state)
 	_state.enter(args)
-
+	emit_signal("state_changed", old_state, _state)
 	return true

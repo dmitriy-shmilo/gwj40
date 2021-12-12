@@ -8,12 +8,12 @@ func enter(args: Dictionary = {}) -> void:
 	assert(_customer.current_seat != null, "When entering, customer must have a seat assigned")
 	_path = _customer.current_seat.get_path_points()
 	_current_path_point = 0
-	
-	
+
+
 func process(delta: float) -> void:
 	if _current_path_point >= _path.size():
 		_customer.direction = _customer.current_seat.direction
-		_transition("IdleState")
+		_transition("WaitingState")
 		return
 		
 	var target = _path[_current_path_point]
