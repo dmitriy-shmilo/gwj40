@@ -454,7 +454,7 @@ region = Rect2( 23, 38, 1, 1 )
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 56, 42 )
 collision_layer = 4
-collision_mask = 3
+collision_mask = 9
 script = ExtResource( 5 )
 
 [node name="SelectionIndicator" type="Sprite" parent="."]
