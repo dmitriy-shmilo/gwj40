@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/freshly_ground_wip.mp3-46272443d6e90c4b8bd5ddc3525191ac.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/freshly_ground_wip.mp3"
+dest_files=[ "res://.import/freshly_ground_wip.mp3-46272443d6e90c4b8bd5ddc3525191ac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
