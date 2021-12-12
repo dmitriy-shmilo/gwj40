@@ -90,6 +90,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="Gui/Hud/Character1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -10.0
 color = Color( 0.705882, 0.705882, 0.705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -99,7 +100,8 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -8.0
+margin_top = -18.0
+margin_bottom = -10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -144,8 +146,11 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Gui/Hud/Character2"]
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -128.0
+margin_bottom = -10.0
 color = Color( 0.705882, 0.705882, 0.705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -155,7 +160,8 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -8.0
+margin_top = -18.0
+margin_bottom = -10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -189,6 +195,17 @@ visible = false
 margin_right = 8.0
 margin_bottom = 8.0
 texture = SubResource( 34 )
+
+[node name="CashLabel" type="Label" parent="Gui/Hud"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -126.0
+margin_top = -13.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "$0.00"
+align = 2
 
 [node name="PauseContainer" type="ColorRect" parent="Gui"]
 visible = false

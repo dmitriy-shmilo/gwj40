@@ -1,6 +1,7 @@
 extends Node
 class_name Gui
 
+onready var _cash_label: Label = $"Hud/CashLabel"
 onready var _pause_container: ColorRect = $"PauseContainer"
 onready var _inventories: = [
 	$"Hud/Character1/Inventory",
@@ -14,6 +15,10 @@ func pause() -> void:
 
 func unpause() -> void:
 	_pause_container.visible = false
+
+
+func update_cash(current: float) -> void:
+	_cash_label.text = "$%0.2f" % current
 
 
 func update_inventory(index: int, inventory: Array) -> void:

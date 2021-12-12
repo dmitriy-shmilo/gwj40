@@ -24,7 +24,7 @@ onready var _seats = [
 	$"YSort/Seat4"
 ]
 
-var _current_cash: float = 0.0
+var _current_cash: float = 10.0
 var _selected_character: int = 0
 
 func _ready():
@@ -33,7 +33,7 @@ func _ready():
 		c.connect("inventory_changed", self, "_on_character_inventory_changed")
 	_characters[_selected_character].selected = true
 	create_customer(_seats[0])
-	
+	_gui.update_cash(_current_cash)
 
 
 func _process(delta: float) -> void:
