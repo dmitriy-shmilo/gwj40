@@ -32,7 +32,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 9 ) ]
+"values": [ Vector2( 0, -1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("InteractionArea:rotation_degrees")
@@ -72,7 +72,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 9 ) ]
+"values": [ Vector2( 0, -1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("InteractionArea:rotation_degrees")
@@ -124,7 +124,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -2, 7 ) ]
+"values": [ Vector2( -2, -3 ) ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -152,7 +152,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 2, 7 ) ]
+"values": [ Vector2( 2, -3 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("InteractionArea:rotation_degrees")
@@ -192,7 +192,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 5 ) ]
+"values": [ Vector2( 0, -5 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("InteractionArea:rotation_degrees")
@@ -233,7 +233,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 9 ) ]
+"values": [ Vector2( 0, -1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("InteractionArea:rotation_degrees")
@@ -286,7 +286,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -2, 7 ) ]
+"values": [ Vector2( -2, -3 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -327,7 +327,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 2, 7 ) ]
+"values": [ Vector2( 2, -3 ) ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -368,7 +368,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 5 ) ]
+"values": [ Vector2( 0, -5 ) ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=33]
@@ -458,13 +458,14 @@ collision_mask = 9
 script = ExtResource( 5 )
 
 [node name="SelectionIndicator" type="Sprite" parent="."]
-position = Vector2( 0, -13 )
+position = Vector2( 0, -23 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 96, 0, 16, 16 )
 
 [node name="BodySprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
+offset = Vector2( 0, -10 )
 hframes = 3
 vframes = 4
 region_rect = Rect2( 0, 0, 16, 18 )
@@ -489,12 +490,12 @@ parameters/idle/blend_position = Vector2( -0.000496268, -0.00662649 )
 parameters/run/blend_position = Vector2( 0, 0.103863 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 7 )
+position = Vector2( 0, -3 )
 rotation = 1.5708
 shape = SubResource( 25 )
 
 [node name="InteractionArea" type="Area2D" parent="."]
-position = Vector2( 0, 9 )
+position = Vector2( 0, -1 )
 collision_layer = 0
 collision_mask = 2
 
@@ -517,10 +518,10 @@ script = ExtResource( 7 )
 script = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 0, -10 )
 z_index = 1000
 
 [node name="InteractionProgress" type="TextureProgress" parent="Node2D"]
-visible = false
 margin_left = 9.0
 margin_top = -13.0
 margin_right = 10.0

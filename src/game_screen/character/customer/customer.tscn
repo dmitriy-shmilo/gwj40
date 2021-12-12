@@ -233,8 +233,8 @@ speed = 20.0
 
 [node name="BodySprite" type="Sprite" parent="."]
 modulate = Color( 0.890196, 0.894118, 0.486275, 1 )
-position = Vector2( 0, -6 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -10 )
 hframes = 3
 vframes = 4
 region_rect = Rect2( 0, 0, 16, 18 )
