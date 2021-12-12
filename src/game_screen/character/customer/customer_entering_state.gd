@@ -1,29 +1,27 @@
 extends CustomerState
-class_name CustomerMovingState
+class_name CustomerEnteringState
 
+var _current_path_point: int = 0
 var _path: PoolVector2Array
-var _current_point: int = 0
 
 func enter(args: Dictionary = {}) -> void:
-	_path = args.get("path") as PoolVector2Array
-	if _path == null:
-		printerr("Customer can't move without a path")
-		_transition("IdleState")
-		return
-	_customer.can_receive = false
-
-
+	_customer.current_seat = args.get("seat")
+	assert(_customer.current_seat != null, "When entering, customer must have a seat assigned")
+	_path = _customer.current_seat.get_path_points()
+	_current_path_point = 0
+	
+	
 func process(delta: float) -> void:
-	if _current_point >= _path.size():
-		print(_customer, " completed its path")
+	if _current_path_point >= _path.size():
+		_customer.direction = _customer.current_seat.direction
 		_transition("IdleState")
 		return
 		
-	var target = _path[_current_point]
+	var target = _path[_current_path_point]
 	var direction = target - _customer.global_position
 	
 	if direction.length_squared() <= PROXIMITY_THRESHOLD:
-		_current_point += 1
+		_current_path_point += 1
 		return
 
 	direction = direction.normalized()

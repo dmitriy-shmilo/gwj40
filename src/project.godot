@@ -30,9 +30,19 @@ _global_script_classes=[ {
 "path": "res://game_screen/character/customer/customer.gd"
 }, {
 "base": "CustomerState",
+"class": "CustomerEnteringState",
+"language": "GDScript",
+"path": "res://game_screen/character/customer/customer_entering_state.gd"
+}, {
+"base": "CustomerState",
 "class": "CustomerIdleState",
 "language": "GDScript",
 "path": "res://game_screen/character/customer/customer_idle_state.gd"
+}, {
+"base": "CustomerState",
+"class": "CustomerLeavingState",
+"language": "GDScript",
+"path": "res://game_screen/character/customer/customer_leaving_state.gd"
 }, {
 "base": "CustomerState",
 "class": "CustomerMovingState",
@@ -109,6 +119,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game_screen/character/player/player_state.gd"
 }, {
+"base": "Node2D",
+"class": "Seat",
+"language": "GDScript",
+"path": "res://game_screen/interactive/seat.gd"
+}, {
 "base": "Control",
 "class": "SettingsScene",
 "language": "GDScript",
@@ -139,7 +154,9 @@ _global_script_class_icons={
 "CharacterState": "",
 "CreditsScene": "",
 "Customer": "",
+"CustomerEnteringState": "",
 "CustomerIdleState": "",
+"CustomerLeavingState": "",
 "CustomerMovingState": "",
 "CustomerState": "",
 "Fader": "",
@@ -155,6 +172,7 @@ _global_script_class_icons={
 "PlayerIdleState": "",
 "PlayerMovingState": "",
 "PlayerState": "",
+"Seat": "",
 "SettingsScene": "",
 "State": "",
 "StateMachine": "",
@@ -178,9 +196,9 @@ UserSaveData="*res://util/user_save_data.gd"
 [display]
 
 window/size/width=256
-window/size/height=240
-window/size/test_width=1280
-window/size/test_height=1200
+window/size/height=192
+window/size/test_width=768
+window/size/test_height=576
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -260,5 +278,5 @@ translations=PoolStringArray( "res://tr_keys.en.translation", "res://tr_keys.ru.
 
 [rendering]
 
-environment/default_clear_color=Color( 0.380392, 0.294118, 0.235294, 1 )
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

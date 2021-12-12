@@ -1,6 +1,8 @@
 extends CharacterState
 class_name CustomerState
 
+const PROXIMITY_THRESHOLD = 4.0
+
 var _customer: Customer = null
 
 func _ready() -> void:
