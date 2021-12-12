@@ -7,8 +7,9 @@ var _path: PoolVector2Array
 func enter(args: Dictionary = {}) -> void:
 	_path = _customer.current_seat.get_path_points()
 	_current_path_point = _path.size() - 1
-	
-	
+	_customer.current_seat.is_busy = false
+
+
 func process(delta: float) -> void:
 	if _current_path_point < 0:
 		_customer.queue_free()
