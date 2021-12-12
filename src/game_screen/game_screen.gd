@@ -1,11 +1,28 @@
 extends Node2D
 class_name GameScreen
 
+const CUSTOMER = preload("res://game_screen/character/customer/customer.tscn")
+
 onready var _gui: Gui = $"Gui"
+onready var _space: YSort = $"YSort"
+onready var _entry_point = $"YSort/Entry"
 onready var _pause_container: ColorRect = $Gui/PauseContainer
 onready var _characters = [
 	$"YSort/Character1",
 	$"YSort/Character2"
+]
+onready var _seat_paths = [
+	$"SeatPath1",
+	$"SeatPath2",
+	$"SeatPath3",
+	$"SeatPath4",
+]
+
+onready var _seats = [
+	$"YSort/Seat1",
+	$"YSort/Seat2",
+	$"YSort/Seat3",
+	$"YSort/Seat4"
 ]
 
 var _selected_character: int = 0
@@ -15,6 +32,8 @@ func _ready():
 		c.selected = false
 		c.connect("inventory_changed", self, "_on_character_inventory_changed")
 	_characters[_selected_character].selected = true
+	create_customer(_seats[0])
+	
 
 
 func _process(delta: float) -> void:
@@ -28,6 +47,13 @@ func _unhandled_input(event):
 	if event.is_action("system_pause"):
 		get_tree().paused = true
 		_pause_container.visible = true
+
+
+func create_customer(seat: Seat) -> void:
+	var customer = CUSTOMER.instance()
+	customer.global_position = _entry_point.global_position
+	_space.add_child(customer)
+	customer.enter(seat)
 
 
 func _on_character_inventory_changed(sender: Player, inventory: Array) -> void:
@@ -46,3 +72,11 @@ func _on_QuitButton_pressed():
 func _on_ContinueButton_pressed():
 	_pause_container.visible = false
 	get_tree().paused = false
+
+
+func _on_CustomerSpawnTimer_timeout() -> void:
+	var index = randi() % _seats.size()
+	if _seats[index].is_busy:
+		return
+	
+	create_customer(_seats[index])
