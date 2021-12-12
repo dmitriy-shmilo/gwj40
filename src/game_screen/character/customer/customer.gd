@@ -18,6 +18,10 @@ func enter(seat: Seat) -> void:
 	_character_state.transition("EnteringState", { "seat" : seat })
 
 
+func leave() -> void:
+	_character_state.transition("LeavingState")
+
+
 func _on_InteractiveReceiver_interaction_finished(source) -> void:
 	if source.get_inventory().size() == 0:
 		return
@@ -26,3 +30,4 @@ func _on_InteractiveReceiver_interaction_finished(source) -> void:
 	_tween.start()
 	yield(_tween, "tween_all_completed")
 	_heart.modulate.a = 0
+	leave()
