@@ -6,6 +6,8 @@ export(Resource) var item
 func can_interact(src: Node) -> bool:
 	var character = src as Character
 	assert(character != null, "Only characters should trigger interaction")
+	if not is_active:
+		return false
 
 	if not item.unique:
 		return true

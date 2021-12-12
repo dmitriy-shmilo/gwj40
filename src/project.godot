@@ -29,15 +29,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game_screen/character/customer/customer.gd"
 }, {
-"base": "CharacterState",
+"base": "CustomerState",
 "class": "CustomerIdleState",
 "language": "GDScript",
 "path": "res://game_screen/character/customer/customer_idle_state.gd"
 }, {
-"base": "CharacterState",
+"base": "CustomerState",
 "class": "CustomerMovingState",
 "language": "GDScript",
 "path": "res://game_screen/character/customer/customer_moving_state.gd"
+}, {
+"base": "CharacterState",
+"class": "CustomerState",
+"language": "GDScript",
+"path": "res://game_screen/character/customer/customer_state.gd"
 }, {
 "base": "Node",
 "class": "Fader",
@@ -136,6 +141,7 @@ _global_script_class_icons={
 "Customer": "",
 "CustomerIdleState": "",
 "CustomerMovingState": "",
+"CustomerState": "",
 "Fader": "",
 "GameScreen": "",
 "Gui": "",
@@ -245,6 +251,7 @@ interact={
 2d_physics/layer_1="obstacle"
 2d_physics/layer_2="interactive"
 2d_physics/layer_3="player"
+2d_physics/layer_4="customer"
 
 [locale]
 

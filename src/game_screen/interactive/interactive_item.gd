@@ -5,10 +5,11 @@ signal interaction_started(source)
 signal interaction_finished(source)
 signal interaction_stopped(source)
 
+export(bool) var is_active = true
 export(float) var interaction_time = 5.0
 
 func can_interact(source: Node) -> bool:
-	return true
+	return is_active
 
 
 func interact_start(source: Node) -> void:
