@@ -26,6 +26,7 @@ onready var _seats = [
 
 var _current_cash: float = 10.0
 var _selected_character: int = 0
+var _is_showing_dialog: bool = false
 
 func _ready():
 	for c in _characters:
@@ -37,6 +38,9 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	if _is_showing_dialog and Input.is_action_just_pressed("interact"):
+		_gui.hide_dialog()
+		
 	if Input.is_action_just_pressed("next_char"):
 		_characters[_selected_character].selected = false
 		_selected_character = (_selected_character + 1) % _characters.size()
@@ -55,11 +59,16 @@ func create_customer(seat: Seat) -> void:
 	_space.add_child(customer)
 	customer.enter(seat)
 	customer.connect("paid", self, "_on_customer_paid")
+	customer.connect("ordered", self, "_on_customer_ordered")
 
 
 func _on_customer_paid(amount: float, tips: float) -> void:
 	_current_cash += amount + tips
 	_gui.update_cash(_current_cash)
+
+
+func _on_customer_ordered(customer: Customer, text: String, order: Array) -> void:
+	_gui.show_dialog(text, order)
 
 
 func _on_character_inventory_changed(sender: Player, inventory: Array) -> void:
@@ -86,3 +95,11 @@ func _on_CustomerSpawnTimer_timeout() -> void:
 		return
 	
 	create_customer(_seats[index])
+
+
+func _on_Gui_dialog_shown() -> void:
+	_is_showing_dialog = true
+
+
+func _on_Gui_dialog_hidden() -> void:
+	_is_showing_dialog = false

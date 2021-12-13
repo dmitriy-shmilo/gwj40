@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://game_screen/game_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/art/floor.png" type="Texture" id=9]
 [ext_resource path="res://game_screen/interactive/table.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game_screen/interactive/seat.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/art/character.png" type="Texture" id=12]
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 7 )
@@ -51,6 +52,10 @@ region = Rect2( 0, 0, 8, 8 )
 [sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 40, 16, 20 )
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 150, 10 )
@@ -206,6 +211,90 @@ margin_top = -13.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "$0.00"
 align = 2
+
+[node name="DialogContainer" type="Panel" parent="Gui"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -52.0
+margin_right = -4.0
+margin_bottom = -4.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortraitBackground" type="ColorRect" parent="Gui/DialogContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 34.0
+margin_bottom = 34.0
+color = Color( 0.505882, 0.415686, 0.243137, 1 )
+
+[node name="Portrait" type="TextureRect" parent="Gui/DialogContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 34.0
+margin_bottom = 34.0
+texture = SubResource( 35 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Gui/DialogContainer"]
+margin_left = 36.0
+margin_top = 4.0
+margin_right = 242.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="HBoxContainer" parent="Gui/DialogContainer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -12.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item1" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 25 )
+
+[node name="Item2" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 26 )
+
+[node name="Item3" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 27 )
+
+[node name="Item4" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 28 )
+
+[node name="Item5" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+texture = SubResource( 29 )
+
+[node name="DialogTween" type="Tween" parent="Gui"]
 
 [node name="PauseContainer" type="ColorRect" parent="Gui"]
 visible = false
@@ -363,6 +452,9 @@ autostart = true
 stream = ExtResource( 8 )
 autoplay = true
 
+[connection signal="dialog_hidden" from="Gui" to="." method="_on_Gui_dialog_hidden"]
+[connection signal="dialog_shown" from="Gui" to="." method="_on_Gui_dialog_shown"]
+[connection signal="gui_input" from="Gui/DialogContainer" to="Gui" method="_on_DialogContainer_gui_input"]
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="timeout" from="CustomerSpawnTimer" to="." method="_on_CustomerSpawnTimer_timeout"]

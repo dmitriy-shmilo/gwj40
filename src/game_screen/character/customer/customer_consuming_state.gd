@@ -16,5 +16,5 @@ func process(delta: float) -> void:
 
 	if _current_idle_time >= _max_idle_time:
 		# TODO: calculate tips
-		_customer.emit_signal("paid", _payment, 0.0)
+		_customer.emit_signal("paid", _customer, _payment, 0.0)
 		_transition("LeavingState")

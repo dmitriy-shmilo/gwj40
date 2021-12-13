@@ -21,11 +21,11 @@ func process(delta: float) -> void:
 func interact(player: Player) -> void:
 	if _customer.current_order.size() == 0:
 		_customer.current_order = _generate_order()
-		#TODO: show order
+		_customer.emit_signal("ordered", _customer, "msg_order", _customer.current_order)
 		return
 
 	if player.get_inventory().size() == 0:
-		#TODO: show order
+		_customer.emit_signal("ordered", _customer, "msg_order", _customer.current_order)
 		return
 
 	var payment = _receive_order(player.get_inventory())

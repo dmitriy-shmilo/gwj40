@@ -1,7 +1,8 @@
 extends Character
 class_name Customer
 
-signal paid(amount, tips)
+signal paid(customer, amount, tips)
+signal ordered(customer, text, order)
 
 var current_seat: Seat = null
 var current_order: Array = []
@@ -9,7 +10,7 @@ var current_order: Array = []
 onready var _tween: Tween = $"Tween"
 onready var _heart: Sprite = $"Heart"
 onready var _receiver: InteractiveReceiver = $"Receiver"
-
+onready var _body_sprite: Sprite = $"BodySprite"
 
 func enter(seat: Seat) -> void:
 	current_seat = seat
