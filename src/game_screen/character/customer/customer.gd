@@ -1,6 +1,8 @@
 extends Character
 class_name Customer
 
+signal paid(amount, tips)
+
 var current_seat: Seat = null
 var current_order: Array = []
 

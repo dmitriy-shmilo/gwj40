@@ -54,6 +54,12 @@ func create_customer(seat: Seat) -> void:
 	customer.global_position = _entry_point.global_position
 	_space.add_child(customer)
 	customer.enter(seat)
+	customer.connect("paid", self, "_on_customer_paid")
+
+
+func _on_customer_paid(amount: float, tips: float) -> void:
+	_current_cash += amount + tips
+	_gui.update_cash(_current_cash)
 
 
 func _on_character_inventory_changed(sender: Player, inventory: Array) -> void:
