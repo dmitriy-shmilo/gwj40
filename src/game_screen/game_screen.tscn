@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://game_screen/game_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://game_screen/interactive/table.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game_screen/interactive/seat.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/art/character.png" type="Texture" id=12]
+[ext_resource path="res://ui/crt_overlay.tscn" type="PackedScene" id=13]
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 7 )
@@ -451,6 +452,8 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="CrtOverlay" parent="." instance=ExtResource( 13 )]
 
 [connection signal="dialog_hidden" from="Gui" to="." method="_on_Gui_dialog_hidden"]
 [connection signal="dialog_shown" from="Gui" to="." method="_on_Gui_dialog_shown"]
