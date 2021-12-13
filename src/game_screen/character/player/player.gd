@@ -16,6 +16,7 @@ onready var _interaction_progress: TextureProgress = $"Node2D/InteractionProgres
 onready var _camera_transform: RemoteTransform2D = $"CameraTransform"
 
 var _inventory: Array = []
+var _target_interactive: InteractiveItem = null
 
 func _ready() -> void:
 	_selection_indicator.visible = selected
@@ -24,10 +25,7 @@ func _ready() -> void:
 
 
 func get_interactive() -> Node:
-	var objects = _interaction_area.get_overlapping_bodies()
-	if objects.size() > 0:
-		return objects[0]
-	return null
+	return _target_interactive
 
 
 func set_selected(value: bool) -> void:
@@ -60,3 +58,27 @@ func add_item(item: Resource) -> void:
 func clear_inventory() -> void:
 	_inventory.clear()
 	emit_signal("inventory_changed", self, _inventory)
+
+
+func _retarget() -> void:
+	var bodies = _interaction_area.get_overlapping_bodies()
+	if bodies.size() == 0:
+		return
+	
+	_target_interactive = bodies[0]
+	_target_interactive.target(self)
+
+func _on_InteractionArea_body_entered(body: Node) -> void:
+	if _target_interactive != null:
+		return
+
+	if body is InteractiveItem:
+		body.target(self)
+		_target_interactive = body
+
+
+func _on_InteractionArea_body_exited(body: Node) -> void:
+	if body == _target_interactive:
+		_target_interactive.untarget(self)
+		_target_interactive = null
+		_retarget()

@@ -537,3 +537,6 @@ __meta__ = {
 }
 
 [node name="CameraTransform" type="RemoteTransform2D" parent="."]
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_InteractionArea_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_InteractionArea_body_exited"]

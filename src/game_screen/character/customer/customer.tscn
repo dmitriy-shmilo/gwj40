@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/art/character.png" type="Texture" id=1]
 [ext_resource path="res://game_screen/interactive/interactive_receiver.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/art/ui.png" type="Texture" id=7]
 [ext_resource path="res://game_screen/character/customer/customer_entering_state.gd" type="Script" id=8]
 [ext_resource path="res://game_screen/character/customer/customer_leaving_state.gd" type="Script" id=9]
+[ext_resource path="res://shader/highlight.tres" type="Material" id=10]
 
 [sub_resource type="Animation" id=24]
 length = 0.001
@@ -233,6 +234,7 @@ speed = 20.0
 
 [node name="BodySprite" type="Sprite" parent="."]
 modulate = Color( 0.890196, 0.894118, 0.486275, 1 )
+material = ExtResource( 10 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -10 )
 hframes = 3
@@ -291,3 +293,5 @@ shape = SubResource( 43 )
 
 [connection signal="state_changed" from="CharacterState" to="." method="_on_CharacterState_state_changed"]
 [connection signal="interaction_finished" from="Receiver" to="." method="_on_InteractiveReceiver_interaction_finished"]
+[connection signal="targeted" from="Receiver" to="." method="_on_Receiver_targeted"]
+[connection signal="untargeted" from="Receiver" to="." method="_on_Receiver_untargeted"]

@@ -35,3 +35,11 @@ func _on_InteractiveReceiver_interaction_finished(source) -> void:
 func _on_CharacterState_state_changed(old_state, new_state) -> void:
 	_receiver.is_active = new_state.is_interactive()
 	_receiver.interaction_time = new_state.interaction_time()
+
+
+func _on_Receiver_targeted(source) -> void:
+	_body_sprite.material.set_shader_param("show_line", 1.0)
+
+
+func _on_Receiver_untargeted(source) -> void:
+	_body_sprite.material.set_shader_param("show_line", 0.0)
