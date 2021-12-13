@@ -274,7 +274,7 @@ interact={
 [locale]
 
 locale_filter=[ 1, [ "en", "ru", "uk" ] ]
-translations=PoolStringArray( "res://tr_keys.en.translation", "res://tr_keys.ru.translation" )
+translations=PoolStringArray( "res://text/tr_keys.en.translation", "res://text/tr_keys.ru.translation" )
 
 [rendering]
 
