@@ -62,7 +62,7 @@ func create_customer(seat: Seat) -> void:
 	customer.connect("ordered", self, "_on_customer_ordered")
 
 
-func _on_customer_paid(amount: float, tips: float) -> void:
+func _on_customer_paid(customer: Customer, amount: float, tips: float) -> void:
 	_current_cash += amount + tips
 	_gui.update_cash(_current_cash)
 
