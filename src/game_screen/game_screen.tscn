@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://game_screen/game_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
@@ -6,53 +6,13 @@
 [ext_resource path="res://game_screen/interactive/coffee_dispencer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game_screen/interactive/sugar_dispencer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game_screen/gui.gd" type="Script" id=6]
-[ext_resource path="res://assets/art/items.png" type="Texture" id=7]
+[ext_resource path="res://game_screen/gui/inventory.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sound/freshly_ground_wip.mp3" type="AudioStream" id=8]
 [ext_resource path="res://assets/art/floor.png" type="Texture" id=9]
 [ext_resource path="res://game_screen/interactive/table.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game_screen/interactive/seat.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/art/character.png" type="Texture" id=12]
 [ext_resource path="res://ui/crt_overlay.tscn" type="PackedScene" id=13]
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 8, 8 )
 
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 12 )
@@ -102,45 +62,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Inventory" type="HBoxContainer" parent="Gui/Hud/Character1"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -18.0
-margin_bottom = -10.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item1" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 25 )
-
-[node name="Item2" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 26 )
-
-[node name="Item3" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 27 )
-
-[node name="Item4" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 28 )
-
-[node name="Item5" type="TextureRect" parent="Gui/Hud/Character1/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 29 )
+[node name="Inventory" parent="Gui/Hud/Character1" instance=ExtResource( 7 )]
 
 [node name="Character2" type="Control" parent="Gui/Hud"]
 anchor_left = 1.0
@@ -162,45 +84,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Inventory" type="HBoxContainer" parent="Gui/Hud/Character2"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -18.0
-margin_bottom = -10.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item1" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 30 )
-
-[node name="Item2" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 31 )
-
-[node name="Item3" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 32 )
-
-[node name="Item4" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 33 )
-
-[node name="Item5" type="TextureRect" parent="Gui/Hud/Character2/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 34 )
+[node name="Inventory" parent="Gui/Hud/Character2" instance=ExtResource( 7 )]
 
 [node name="CashLabel" type="Label" parent="Gui/Hud"]
 anchor_left = 1.0
@@ -253,47 +137,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Inventory" type="HBoxContainer" parent="Gui/DialogContainer"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Inventory" parent="Gui/DialogContainer" instance=ExtResource( 7 )]
 margin_left = 4.0
-margin_top = -12.0
+margin_top = -13.0
 margin_right = -4.0
-margin_bottom = -4.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item1" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 25 )
-
-[node name="Item2" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 26 )
-
-[node name="Item3" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 27 )
-
-[node name="Item4" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 28 )
-
-[node name="Item5" type="TextureRect" parent="Gui/DialogContainer/Inventory"]
-visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = SubResource( 29 )
+margin_bottom = -5.0
 
 [node name="DialogTween" type="Tween" parent="Gui"]
 
