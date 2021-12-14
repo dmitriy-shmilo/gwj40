@@ -12,7 +12,7 @@ func enter(args: Dictionary = {}) -> void:
 
 func process(delta: float) -> void:
 	if _current_path_point < 0:
-		_customer.queue_free()
+		_customer.emit_signal("left", _customer)
 		return
 		
 	var target = _path[_current_path_point]

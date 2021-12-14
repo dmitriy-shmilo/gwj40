@@ -3,6 +3,7 @@ class_name Customer
 
 signal paid(customer, amount, tips)
 signal ordered(customer, text, order)
+signal left(customer)
 
 var current_seat: Seat = null
 var current_order: Array = []

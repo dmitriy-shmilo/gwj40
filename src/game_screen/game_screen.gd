@@ -3,7 +3,10 @@ class_name GameScreen
 
 const CUSTOMER = preload("res://game_screen/character/customer/customer.tscn")
 
+export(float) var day_length = 20.0
+
 onready var _gui: Gui = $"Gui"
+onready var _fader: Fader = $"Fader"
 onready var _space: YSort = $"YSort"
 onready var _entry_point = $"YSort/Entry"
 onready var _characters = [
@@ -27,24 +30,38 @@ onready var _seats = [
 var _current_cash: float = 10.0
 var _selected_character: int = 0
 var _is_showing_dialog: bool = false
+var _current_time = 0.0
+var _current_customers = []
+var _day_ended = false
 
 func _ready():
 	for c in _characters:
 		c.selected = false
 		c.connect("inventory_changed", self, "_on_character_inventory_changed")
 	_characters[_selected_character].selected = true
-	create_customer(_seats[0])
+	_create_customer(_seats[0])
 	_gui.update_cash(_current_cash)
 
 
 func _process(delta: float) -> void:
+	
+
 	if _is_showing_dialog and Input.is_action_just_pressed("interact"):
 		_gui.hide_dialog()
-		
+
 	if Input.is_action_just_pressed("next_char"):
 		_characters[_selected_character].selected = false
 		_selected_character = (_selected_character + 1) % _characters.size()
 		_characters[_selected_character].selected = true
+	
+	if _day_ended:
+		return
+	
+	_current_time += delta	
+	if _current_time >= day_length:
+		_current_time = day_length
+		if _current_customers.size() == 0:
+			_end_day()
 
 
 func _unhandled_input(event):
@@ -53,13 +70,15 @@ func _unhandled_input(event):
 		_gui.pause()
 
 
-func create_customer(seat: Seat) -> void:
+func _create_customer(seat: Seat) -> void:
 	var customer = CUSTOMER.instance()
 	customer.global_position = _entry_point.global_position
 	_space.add_child(customer)
+	_current_customers.append(customer)
 	customer.enter(seat)
 	customer.connect("paid", self, "_on_customer_paid")
 	customer.connect("ordered", self, "_on_customer_ordered")
+	customer.connect("left", self, "_on_customer_left")
 
 
 func _on_customer_paid(customer: Customer, amount: float, tips: float) -> void:
@@ -69,6 +88,18 @@ func _on_customer_paid(customer: Customer, amount: float, tips: float) -> void:
 
 func _on_customer_ordered(customer: Customer, text: String, order: Array) -> void:
 	_gui.show_dialog(text, order)
+
+
+func _on_customer_left(customer: Customer) -> void:
+	_current_customers.erase(customer)
+	customer.queue_free()
+
+
+func _end_day() -> void:
+	_day_ended = true
+	_fader.fade_out()
+	yield(_fader, "fade_out_completed")
+	get_tree().change_scene("res://night_screen/night_screen.tscn")
 
 
 func _on_character_inventory_changed(sender: Player, inventory: Array) -> void:
@@ -90,11 +121,15 @@ func _on_ContinueButton_pressed():
 
 
 func _on_CustomerSpawnTimer_timeout() -> void:
+	# TODO: should probably just stop the timer
+	if _current_time >= day_length:
+		return
+
 	var index = randi() % _seats.size()
 	if _seats[index].is_busy:
 		return
 	
-	create_customer(_seats[index])
+	_create_customer(_seats[index])
 
 
 func _on_Gui_dialog_shown() -> void:
