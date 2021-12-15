@@ -27,7 +27,7 @@ onready var _seats = [
 	$"YSort/Seat4"
 ]
 
-var _current_cash: float = 10.0
+var _current_cash: float = UserSaveData.current_cash
 var _selected_character: int = 0
 var _is_showing_dialog: bool = false
 var _current_time = 0.0
@@ -44,8 +44,6 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	
-
 	if _is_showing_dialog and Input.is_action_just_pressed("interact"):
 		_gui.hide_dialog()
 
@@ -99,6 +97,7 @@ func _end_day() -> void:
 	_day_ended = true
 	_fader.fade_out()
 	yield(_fader, "fade_out_completed")
+	UserSaveData.current_cash = _current_cash
 	get_tree().change_scene("res://night_screen/night_screen.tscn")
 
 

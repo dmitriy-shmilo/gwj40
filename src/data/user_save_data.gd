@@ -2,6 +2,9 @@ extends Node
 
 const SAVE_FILE = "user://save.json"
 
+var stocks = Stocks.new()
+var current_cash = 0.0
+var current_day = 0
 var _save_time = 0
 
 func save_data() -> void:
@@ -36,12 +39,18 @@ func load_data() -> void:
 
 func _get_data() -> Dictionary:
 	return {
-		"_save_time" : _save_time
+		"_save_time" : _save_time,
+		"current_cash" : current_cash,
+		"current_day" : current_day,
+		"stocks" : stocks._data
 	}
 
 
 func _set_from_data(data: Dictionary) -> void:
 	_save_time = _get_or_default(data, "_save_time", 0)
+	current_cash = _get_or_default(data, "current_cash", 0.0)
+	current_day = _get_or_default(data, "current_day", 0)
+	stocks._data = _get_or_default(data, "stocks", {})
 
 
 func _get_or_default(data: Dictionary, key: String, default) -> Object:
