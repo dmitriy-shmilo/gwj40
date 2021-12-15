@@ -189,7 +189,7 @@ _global_script_class_icons={
 [application]
 
 config/name="gwj40"
-run/main_scene="res://game_screen/game_screen.tscn"
+run/main_scene="res://splash_screen/splash_screen.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
@@ -280,7 +280,7 @@ interact={
 [locale]
 
 locale_filter=[ 1, [ "en", "ru", "uk" ] ]
-translations=PoolStringArray( "res://text/tr_keys.en.translation", "res://text/tr_keys.ru.translation", "res://text/tr_messages.en.translation", "res://text/tr_messages.ru.translation" )
+translations=PoolStringArray( "res://text/tr_keys.en.translation", "res://text/tr_keys.ru.translation", "res://text/tr_messages.en.translation", "res://text/tr_messages.ru.translation", "res://text/tr_ui.en.translation", "res://text/tr_ui.ru.translation" )
 
 [rendering]
 
