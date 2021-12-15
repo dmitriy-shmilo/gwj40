@@ -92,7 +92,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
-"path": "res://game_screen/item/item.gd"
+"path": "res://data/item/item.gd"
 }, {
 "base": "Button",
 "class": "KeyBindingButton",
@@ -191,7 +191,7 @@ config/windows_native_icon="res://icon.ico"
 
 ErrorHandler="*res://util/error_handler.gd"
 Settings="*res://util/settings.gd"
-UserSaveData="*res://util/user_save_data.gd"
+UserSaveData="*res://data/user_save_data.gd"
 
 [display]
 

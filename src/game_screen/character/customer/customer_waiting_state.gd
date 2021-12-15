@@ -2,9 +2,9 @@ extends CustomerState
 class_name CustomerWaitingState
 
 const possible_items = [
-	preload("res://game_screen/item/coffee.tres"),
-	preload("res://game_screen/item/sugar.tres"),
-	preload("res://game_screen/item/milk.tres")
+	preload("res://data/item/coffee.tres"),
+	preload("res://data/item/sugar.tres"),
+	preload("res://data/item/milk.tres")
 ]
 
 var _current_wait_time = 0
