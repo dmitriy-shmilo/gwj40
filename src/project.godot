@@ -139,6 +139,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game_screen/state_machine.gd"
 }, {
+"base": "Reference",
+"class": "Stocks",
+"language": "GDScript",
+"path": "res://data/stocks.gd"
+}, {
 "base": "Control",
 "class": "TitleScene",
 "language": "GDScript",
@@ -176,6 +181,7 @@ _global_script_class_icons={
 "SettingsScene": "",
 "State": "",
 "StateMachine": "",
+"Stocks": "",
 "TitleScene": "",
 "TutorialScene": ""
 }
