@@ -1,5 +1,6 @@
 key,en,ru
 ui_night_title,"Day #%d ended","Конец %d дня"
+ui_next_day,"Next Day","Следующий день"
 ui_pause,Pause,Пауза
 ui_retry,Retry,Еще Раз
 ui_continue,Continue,Продолжить

@@ -23,15 +23,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="TitleLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -101.0
 margin_top = 10.0
 margin_right = 101.0
-margin_bottom = 44.0
+margin_bottom = 23.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "ui_night_time"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CashLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -101.0
+margin_top = 26.0
+margin_right = 101.0
+margin_bottom = 39.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "$0.00"
 align = 1
 autowrap = true
 __meta__ = {
