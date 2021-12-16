@@ -4,6 +4,7 @@ class_name Customer
 signal paid(customer, amount, tips)
 signal ordered(customer, text, order)
 signal left(customer)
+signal unfocused(customer, player)
 
 var current_seat: Seat = null
 var current_order: Array = []
@@ -45,3 +46,4 @@ func _on_Receiver_targeted(source) -> void:
 
 func _on_Receiver_untargeted(source) -> void:
 	_body_sprite.material.set_shader_param("show_line", 0.0)
+	emit_signal("unfocused", self, source)

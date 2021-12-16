@@ -306,8 +306,6 @@ autoplay = true
 
 [node name="Fader" parent="." instance=ExtResource( 14 )]
 
-[connection signal="dialog_hidden" from="Gui" to="." method="_on_Gui_dialog_hidden"]
-[connection signal="dialog_shown" from="Gui" to="." method="_on_Gui_dialog_shown"]
 [connection signal="gui_input" from="Gui/DialogContainer" to="Gui" method="_on_DialogContainer_gui_input"]
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]

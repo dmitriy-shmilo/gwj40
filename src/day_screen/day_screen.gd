@@ -29,7 +29,7 @@ onready var _seats = [
 
 var _current_cash: float = UserSaveData.current_cash
 var _selected_character: int = 0
-var _is_showing_dialog: bool = false
+var _dialog_customer: Customer = null
 var _current_time = 0.0
 var _current_customers = []
 var _day_ended = false
@@ -44,7 +44,8 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	if _is_showing_dialog and Input.is_action_just_pressed("interact"):
+	if _dialog_customer != null and Input.is_action_just_pressed("interact"):
+		_dialog_customer = null
 		_gui.hide_dialog()
 
 	if Input.is_action_just_pressed("next_char"):
@@ -77,6 +78,7 @@ func _create_customer(seat: Seat) -> void:
 	customer.connect("paid", self, "_on_customer_paid")
 	customer.connect("ordered", self, "_on_customer_ordered")
 	customer.connect("left", self, "_on_customer_left")
+	customer.connect("unfocused", self, "_on_customer_unfocused")
 
 
 func _on_customer_paid(customer: Customer, amount: float, tips: float) -> void:
@@ -86,6 +88,13 @@ func _on_customer_paid(customer: Customer, amount: float, tips: float) -> void:
 
 func _on_customer_ordered(customer: Customer, text: String, order: Array) -> void:
 	_gui.show_dialog(text, order)
+	_dialog_customer = customer
+
+
+func _on_customer_unfocused(customer: Customer, player: Player) -> void:
+	if _dialog_customer == customer:
+		_gui.hide_dialog()
+		_dialog_customer = null
 
 
 func _on_customer_left(customer: Customer) -> void:
@@ -130,10 +139,3 @@ func _on_CustomerSpawnTimer_timeout() -> void:
 	
 	_create_customer(_seats[index])
 
-
-func _on_Gui_dialog_shown() -> void:
-	_is_showing_dialog = true
-
-
-func _on_Gui_dialog_hidden() -> void:
-	_is_showing_dialog = false
