@@ -8,3 +8,5 @@ id = 1
 sprite_frame = 1
 unique = true
 name = "item_coffee"
+sell_cost = 1.0
+restock_cost = 0.5

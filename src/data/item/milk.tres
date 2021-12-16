@@ -8,3 +8,5 @@ id = 3
 sprite_frame = 3
 unique = false
 name = "item_milk"
+sell_cost = 1.0
+restock_cost = 0.5
