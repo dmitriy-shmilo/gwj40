@@ -19,16 +19,19 @@ func process(delta: float) -> void:
 
 
 func interact(player: Player) -> void:
-	if _customer.current_order.size() == 0:
-		_customer.current_order = _generate_order()
+	if _customer.current_order == null:
+		var order = Order.new()
+		order.ordered_items = _generate_order_items()
+		_customer.current_order = order
 		_customer.emit_signal("ordered", _customer, "msg_order", _customer.current_order)
 		return
 
 	if player.get_inventory().size() == 0:
 		_customer.emit_signal("ordered", _customer, "msg_order", _customer.current_order)
 		return
-
-	var payment = _receive_order(player.get_inventory())
+	
+	_customer.current_order.served_items = player.get_inventory()
+	var payment = _receive_order(_customer.current_order)
 	player.clear_inventory()
 	_customer.show_mood()
 	_transition("ConsumingState", { "payment" : payment })
@@ -38,7 +41,7 @@ func is_interactive() -> bool:
 	return true
 
 
-func _generate_order() -> Array:
+func _generate_order_items() -> Array:
 	var order = [
 		possible_items[0]
 	]
@@ -51,6 +54,6 @@ func _generate_order() -> Array:
 	return order
 
 
-func _receive_order(items: Array) -> float:
+func _receive_order(order: Order) -> float:
 	# TODO: calculate order correctness
 	return 10.0

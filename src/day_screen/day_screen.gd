@@ -86,8 +86,8 @@ func _on_customer_paid(customer: Customer, amount: float, tips: float) -> void:
 	_gui.update_cash(_current_cash)
 
 
-func _on_customer_ordered(customer: Customer, text: String, order: Array) -> void:
-	_gui.show_dialog(text, order)
+func _on_customer_ordered(customer: Customer, text: String, order: Order) -> void:
+	_gui.show_dialog(text, order.ordered_items)
 	_dialog_customer = customer
 
 

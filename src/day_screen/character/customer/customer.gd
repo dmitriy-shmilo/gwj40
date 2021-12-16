@@ -7,7 +7,7 @@ signal left(customer)
 signal unfocused(customer, player)
 
 var current_seat: Seat = null
-var current_order: Array = []
+var current_order: Order = null
 
 onready var _tween: Tween = $"Tween"
 onready var _heart: Sprite = $"Heart"
