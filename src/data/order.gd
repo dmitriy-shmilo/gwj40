@@ -26,3 +26,20 @@ func refresh_costs() -> void:
 	served_cost = 0.0
 	for item in served_items:
 		served_cost += item.sell_cost
+
+
+func get_score() -> float:
+	var tmp_served = served_items.duplicate()
+	var total = ordered_items.size() + tmp_served.size()
+	var score = 1.0
+	
+	for item in ordered_items:
+		var found = tmp_served.find(item)
+		if found > -1:
+			tmp_served.remove(found)
+		else:
+			score -= 1.0 / total
+	
+	score -= tmp_served.size() / total
+	
+	return score

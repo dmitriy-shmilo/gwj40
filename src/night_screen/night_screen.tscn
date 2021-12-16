@@ -37,35 +37,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CashLabel" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -101.0
-margin_top = 26.0
-margin_right = 101.0
-margin_bottom = 39.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "$0.00"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="NextDayButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -46.0
-margin_top = -44.0
+margin_top = -34.0
 margin_right = 46.0
-margin_bottom = -17.0
+margin_bottom = -7.0
 text = "ui_next_day"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fader" parent="." instance=ExtResource( 4 )]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 44.0
+margin_right = -4.0
+margin_bottom = -38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OrderList" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 248.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OrderListHeader" type="Label" parent="ScrollContainer/OrderList"]
+margin_right = 248.0
+margin_bottom = 13.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ui_order_list_header"
+
+[node name="OrderListFooter" type="Label" parent="ScrollContainer/OrderList"]
+margin_top = 17.0
+margin_right = 248.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ui_order_list_footer"
 
 [connection signal="pressed" from="NextDayButton" to="." method="_on_NextDayButton_pressed"]
