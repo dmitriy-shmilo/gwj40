@@ -1,7 +1,7 @@
 extends Character
 class_name Customer
 
-signal paid(customer, amount, tips)
+signal finished(customer, order)
 signal ordered(customer, text, order)
 signal left(customer)
 signal unfocused(customer, player)

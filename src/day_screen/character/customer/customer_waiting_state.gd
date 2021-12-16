@@ -31,10 +31,11 @@ func interact(player: Player) -> void:
 		return
 	
 	_customer.current_order.served_items = player.get_inventory()
-	var payment = _receive_order(_customer.current_order)
+	_customer.current_order.payment = _receive_order(_customer.current_order)
+	# TODO: calculate tips
 	player.clear_inventory()
 	_customer.show_mood()
-	_transition("ConsumingState", { "payment" : payment })
+	_transition("ConsumingState")
 
 
 func is_interactive() -> bool:
@@ -56,4 +57,4 @@ func _generate_order_items() -> Array:
 
 func _receive_order(order: Order) -> float:
 	# TODO: calculate order correctness
-	return 10.0
+	return order.served_cost

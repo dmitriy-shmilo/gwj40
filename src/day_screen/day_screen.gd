@@ -33,6 +33,7 @@ var _dialog_customer: Customer = null
 var _current_time = 0.0
 var _current_customers = []
 var _day_ended = false
+var _orders = []
 
 func _ready():
 	for c in _characters:
@@ -75,14 +76,15 @@ func _create_customer(seat: Seat) -> void:
 	_space.add_child(customer)
 	_current_customers.append(customer)
 	customer.enter(seat)
-	customer.connect("paid", self, "_on_customer_paid")
+	customer.connect("finished", self, "_on_customer_finished")
 	customer.connect("ordered", self, "_on_customer_ordered")
 	customer.connect("left", self, "_on_customer_left")
 	customer.connect("unfocused", self, "_on_customer_unfocused")
 
 
-func _on_customer_paid(customer: Customer, amount: float, tips: float) -> void:
-	_current_cash += amount + tips
+func _on_customer_finished(customer: Customer, order: Order) -> void:
+	_orders.append(order)
+	_current_cash += order.payment + order.tips
 	_gui.update_cash(_current_cash)
 
 
