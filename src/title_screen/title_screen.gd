@@ -35,7 +35,7 @@ func _on_SettingsButton_pressed():
 func _on_NewGameButton_pressed():
 	_fader.fade_out()
 	yield(_fader, "fade_out_completed")
-	var err = get_tree().change_scene("res://game_screen/game_screen.tscn")
+	var err = get_tree().change_scene("res://day_screen/day_screen.tscn")
 	ErrorHandler.handle(err)
 
 

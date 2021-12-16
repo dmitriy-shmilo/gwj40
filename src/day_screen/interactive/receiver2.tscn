@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://game_screen/interactive/interactive_receiver.tscn" type="PackedScene" id=1]
+[ext_resource path="res://day_screen/interactive/interactive_receiver.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/art/ui.png" type="Texture" id=2]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=3]
-[ext_resource path="res://game_screen/interactive/receiver2.gd" type="Script" id=4]
+[ext_resource path="res://day_screen/interactive/receiver2.gd" type="Script" id=4]
 
 [node name="Receiver2" type="Node2D"]
 script = ExtResource( 4 )

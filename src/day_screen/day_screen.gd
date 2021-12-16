@@ -1,7 +1,7 @@
 extends Node2D
-class_name GameScreen
+class_name DayScreen
 
-const CUSTOMER = preload("res://game_screen/character/customer/customer.tscn")
+const CUSTOMER = preload("res://day_screen/character/customer/customer.tscn")
 
 export(float) var day_length = 20.0
 

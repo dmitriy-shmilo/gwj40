@@ -1,12 +1,12 @@
 [gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://game_screen/character/player/player_moving_state.gd" type="Script" id=1]
-[ext_resource path="res://game_screen/character/player/interacting_state.gd" type="Script" id=2]
+[ext_resource path="res://day_screen/character/player/player_moving_state.gd" type="Script" id=1]
+[ext_resource path="res://day_screen/character/player/interacting_state.gd" type="Script" id=2]
 [ext_resource path="res://assets/art/character.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/ui.png" type="Texture" id=4]
-[ext_resource path="res://game_screen/character/player/player.gd" type="Script" id=5]
-[ext_resource path="res://game_screen/state_machine.gd" type="Script" id=6]
-[ext_resource path="res://game_screen/character/player/player_idle_state.gd" type="Script" id=7]
+[ext_resource path="res://day_screen/character/player/player.gd" type="Script" id=5]
+[ext_resource path="res://day_screen/state_machine.gd" type="Script" id=6]
+[ext_resource path="res://day_screen/character/player/player_idle_state.gd" type="Script" id=7]
 
 [sub_resource type="Animation" id=2]
 length = 0.001

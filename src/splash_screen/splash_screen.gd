@@ -9,4 +9,4 @@ func _ready() -> void:
 	_fader.fade_out()
 	yield(_fader, "fade_out_completed")
 	# TODO: set to title screen
-	get_tree().change_scene("res://game_screen/game_screen.tscn")
+	get_tree().change_scene("res://day_screen/day_screen.tscn")

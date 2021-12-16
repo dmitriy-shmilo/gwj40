@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://game_screen/interactive/interactive_receiver.gd" type="Script" id=1]
+[ext_resource path="res://day_screen/interactive/interactive_dispencer.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=25]
 radius = 7.0
 
-[node name="InteractiveReceiver" type="StaticBody2D"]
+[node name="InteractiveDispencer" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 1 )

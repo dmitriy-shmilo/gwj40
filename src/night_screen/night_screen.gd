@@ -15,4 +15,4 @@ func _on_NextDayButton_pressed() -> void:
 	yield(_fader, "fade_out_completed")
 	UserSaveData.current_day += 1
 	UserSaveData.save_data()
-	get_tree().change_scene("res://game_screen/game_screen.tscn")
+	get_tree().change_scene("res://day_screen/day_screen.tscn")
