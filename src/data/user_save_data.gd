@@ -3,6 +3,7 @@ extends Node
 const SAVE_FILE = "user://save.json"
 
 var stocks = Stocks.new()
+var last_served_orders = []
 var current_cash = 0.0
 var current_day = 0
 var _save_time = 0

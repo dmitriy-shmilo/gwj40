@@ -30,7 +30,7 @@ func interact(player: Player) -> void:
 		_customer.emit_signal("ordered", _customer, "msg_order", _customer.current_order)
 		return
 	
-	_customer.current_order.served_items = player.get_inventory()
+	_customer.current_order.served_items = player.get_inventory().duplicate()
 	_customer.current_order.payment = _receive_order(_customer.current_order)
 	# TODO: calculate tips
 	player.clear_inventory()

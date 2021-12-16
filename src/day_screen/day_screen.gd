@@ -109,6 +109,7 @@ func _end_day() -> void:
 	_fader.fade_out()
 	yield(_fader, "fade_out_completed")
 	UserSaveData.current_cash = _current_cash
+	UserSaveData.last_served_orders = _orders
 	get_tree().change_scene("res://night_screen/night_screen.tscn")
 
 
