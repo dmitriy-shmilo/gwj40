@@ -9,6 +9,10 @@ func can_interact(src: Node) -> bool:
 	if not is_active:
 		return false
 
+	# TODO: indicate out of stock
+	if UserSaveData.stocks.get_stock(item.id) <= 0:
+		return false
+
 	if not item.unique:
 		return true
 	
@@ -23,3 +27,4 @@ func interact_finish(src: Node) -> void:
 	var character = src as Character
 	assert(character != null, "Only characters should trigger interaction finish")
 	character.add_item(item)
+	UserSaveData.stocks.modify_stock(item.id, -1)
