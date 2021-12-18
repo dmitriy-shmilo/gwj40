@@ -10,7 +10,6 @@ region = Rect2( 128, 80, 16, 16 )
 [resource]
 script = ExtResource( 1 )
 id = 3
-sprite_frame = 3
 texture = SubResource( 1 )
 unique = false
 name = "item_milk"

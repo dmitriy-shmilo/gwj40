@@ -8,6 +8,15 @@ var current_cash = 0.0
 var current_day = 0
 var _save_time = 0
 
+
+func new_game() -> void:
+	current_cash = 5.0
+	current_day = 1
+	stocks = Stocks.new()
+	stocks.set_stock(1, 10)
+	last_served_orders = []
+
+
 func save_data() -> void:
 	_save_time = OS.get_unix_time()
 
@@ -22,6 +31,7 @@ func load_data() -> void:
 	var file := File.new()
 
 	if not file.file_exists(SAVE_FILE):
+		new_game()
 		save_data()
 		return
 

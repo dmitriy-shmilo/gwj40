@@ -9,8 +9,7 @@ region = Rect2( 144, 80, 16, 16 )
 
 [resource]
 script = ExtResource( 1 )
-id = 2
-sprite_frame = 2
+id = 5
 texture = SubResource( 1 )
 unique = false
 name = "item_sugar"

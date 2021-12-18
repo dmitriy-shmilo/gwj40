@@ -10,9 +10,8 @@ region = Rect2( 112, 80, 16, 16 )
 [resource]
 script = ExtResource( 1 )
 id = 1
-sprite_frame = 1
 texture = SubResource( 1 )
-unique = false
+unique = true
 name = "item_coffee"
 sell_cost = 1.0
 restock_cost = 0.5
