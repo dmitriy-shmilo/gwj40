@@ -3,7 +3,8 @@ class_name Customer
 
 const BODY_TEXTURES = [
 	preload("res://assets/art/customer1.png"),
-	preload("res://assets/art/customer2.png")
+	preload("res://assets/art/customer2.png"),
+	preload("res://assets/art/customer3.png")
 ]
 
 signal finished(customer, order)
