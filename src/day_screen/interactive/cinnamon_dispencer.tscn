@@ -3,20 +3,20 @@
 [ext_resource path="res://day_screen/interactive/interactive_dispencer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/art/tilemap.png" type="Texture" id=2]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=3]
-[ext_resource path="res://data/item/coffee.tres" type="Resource" id=4]
+[ext_resource path="res://data/item/cinnamon.tres" type="Resource" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
-region = Rect2( 160, 80, 32, 32 )
+region = Rect2( 96, 64, 16, 16 )
 
-[node name="CoffeeDispencer" type="Node2D"]
+[node name="CinnamonDispencer" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -15 )
 texture = SubResource( 1 )
+region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="InteractiveDispencer" parent="." instance=ExtResource( 1 )]
-interaction_time = 1.0
+interaction_time = 2.0
 item = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
@@ -25,12 +25,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -35.0
-margin_top = -45.0
-margin_right = 37.0
-margin_bottom = -19.0
+margin_left = -29.0
+margin_top = -30.0
+margin_right = 31.0
+margin_bottom = -4.0
 theme = ExtResource( 3 )
-text = "Coffee"
+text = "Cinnamon"
 align = 1
 valign = 1
 __meta__ = {

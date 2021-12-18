@@ -51,6 +51,8 @@ func _setup_order_list() -> void:
 func _setup_stocks_list() -> void:
 	_stocks_list_footer.text = tr("ui_stocks_list_footer") % 0.0
 	var stocks = UserSaveData.stocks
+	var items = stocks.items
+	items.invert()
 	for item in stocks.items:
 		# TODO: check for unlocks
 		var row = STOCK_ROW_SCENE.instance()

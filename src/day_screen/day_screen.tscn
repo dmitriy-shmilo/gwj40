@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://day_screen/day_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
@@ -17,7 +17,9 @@
 [ext_resource path="res://assets/art/window.png" type="Texture" id=15]
 [ext_resource path="res://assets/art/player2.png" type="Texture" id=16]
 [ext_resource path="res://assets/art/portraits.png" type="Texture" id=17]
-[ext_resource path="res://assets/art/items.png" type="Texture" id=18]
+[ext_resource path="res://day_screen/interactive/cinnamon_dispencer.tscn" type="PackedScene" id=19]
+[ext_resource path="res://day_screen/interactive/milk_dispencer.tscn" type="PackedScene" id=20]
+[ext_resource path="res://day_screen/interactive/ice_dispencer.tscn" type="PackedScene" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 6, 16, 6, 10, 16, 10 )
@@ -961,7 +963,6 @@ animations = [ {
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 16, 21 )
 
-
 [sub_resource type="AtlasTexture" id=57]
 atlas = ExtResource( 17 )
 region = Rect2( 16, 0, 16, 21 )
@@ -1020,12 +1021,12 @@ tile_data = PoolIntArray( 0, 14, 0, 3, 14, 0, 65536, 13, 0, 65537, 10, 0, 65538,
 [node name="WindowSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 144, 16 )
 frames = SubResource( 48 )
-frame = 6
 playing = true
 
 [node name="WindowSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 176, 16 )
 frames = SubResource( 48 )
+frame = 10
 playing = true
 
 [node name="Gui" type="CanvasLayer" parent="."]
@@ -1047,18 +1048,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Gui/Hud/Character1"]
+[node name="Panel" type="Panel" parent="Gui/Hud/Character1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.705882, 0.705882, 0.705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Inventory" parent="Gui/Hud/Character1" instance=ExtResource( 7 )]
-margin_left = 28.0
-margin_top = -16.0
-margin_bottom = 0.0
 
 [node name="Portrait" type="TextureRect" parent="Gui/Hud/Character1"]
 anchor_right = 0.03125
@@ -1073,6 +1068,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Inventory" parent="Gui/Hud/Character1" instance=ExtResource( 7 )]
+margin_left = 28.0
+margin_top = -20.0
+margin_bottom = -4.0
+
 [node name="Character2" type="Control" parent="Gui/Hud"]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1083,36 +1083,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Gui/Hud/Character2"]
-anchor_left = 1.0
+[node name="Panel" type="Panel" parent="Gui/Hud/Character2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -128.0
-color = Color( 0.705882, 0.705882, 0.705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Inventory" parent="Gui/Hud/Character2" instance=ExtResource( 7 )]
-margin_top = -16.0
+margin_top = -20.0
 margin_right = -28.0
-margin_bottom = 0.0
+margin_bottom = -4.0
 alignment = 2
 
 [node name="Item1" parent="Gui/Hud/Character2/Inventory" index="0"]
-texture = SubResource( 58 )
+margin_left = 4.0
+margin_right = 20.0
 
 [node name="Item2" parent="Gui/Hud/Character2/Inventory" index="1"]
-texture = SubResource( 59 )
+margin_left = 24.0
+margin_right = 40.0
 
 [node name="Item3" parent="Gui/Hud/Character2/Inventory" index="2"]
-texture = SubResource( 60 )
+margin_left = 44.0
+margin_right = 60.0
 
 [node name="Item4" parent="Gui/Hud/Character2/Inventory" index="3"]
-texture = SubResource( 61 )
+margin_left = 64.0
+margin_right = 80.0
 
 [node name="Item5" parent="Gui/Hud/Character2/Inventory" index="4"]
-texture = SubResource( 62 )
+margin_left = 84.0
+margin_right = 100.0
 
 [node name="Portrait" type="TextureRect" parent="Gui/Hud/Character2"]
 anchor_left = 1.0
@@ -1222,6 +1224,7 @@ __meta__ = {
 }
 
 [node name="Inventory" parent="Gui/DialogContainer" instance=ExtResource( 7 )]
+anchor_bottom = 1.16667
 margin_left = 4.0
 margin_top = -13.0
 margin_right = -4.0
@@ -1297,11 +1300,20 @@ texture = ExtResource( 16 )
 [node name="BodyAnimationTree" parent="YSort/Character2" index="3"]
 parameters/playback = SubResource( 49 )
 
+[node name="IceDispencer" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( 95, 30 )
+
 [node name="CoffeeDispencer" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 19, 81 )
+position = Vector2( 23, 30 )
 
 [node name="SugarDispencer" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 19, 63 )
+position = Vector2( 8, 53 )
+
+[node name="MilkDispencer" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 56, 25 )
+
+[node name="CinnamonDispenser" parent="YSort" instance=ExtResource( 19 )]
+position = Vector2( 9, 81 )
 
 [node name="Table2" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 151, 111 )

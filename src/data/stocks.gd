@@ -4,7 +4,9 @@ class_name Stocks
 var items = [
 	preload("res://data/item/coffee.tres"),
 	preload("res://data/item/milk.tres"),
-	preload("res://data/item/sugar.tres")
+	preload("res://data/item/sugar.tres"),
+	preload("res://data/item/cinnamon.tres"),
+	preload("res://data/item/ice.tres"),
 ]
 
 var _data = {}
