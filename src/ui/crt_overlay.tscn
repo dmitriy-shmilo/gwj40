@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/crt_overlay.gd" type="Script" id=1]
 
-[sub_resource type="Shader" id=36]
+[sub_resource type="Shader" id=1]
 code = "/*
 Godot 3 2D CRT Shader.
 A 2D shader for Godot 3 simulating a CRT..
@@ -88,12 +88,12 @@ void fragment() {
 	COLOR = vec4(color, 1.0);
 }"
 
-[sub_resource type="ShaderMaterial" id=37]
-shader = SubResource( 36 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/screen_size = Vector2( 320, 180 )
 shader_param/show_curvature = true
-shader_param/curvature_x_amount = 6.0
-shader_param/curvature_y_amount = 4.0
+shader_param/curvature_x_amount = 7.0
+shader_param/curvature_y_amount = 5.0
 shader_param/corner_color = Color( 0, 0, 0, 1 )
 shader_param/show_vignette = true
 shader_param/vignette_opacity = 0.2
@@ -110,7 +110,7 @@ shader_param/aberration_amount = 0.3
 script = ExtResource( 1 )
 
 [node name="OverlayRect" type="ColorRect" parent="."]
-material = SubResource( 37 )
+material = SubResource( 2 )
 margin_right = 250.0
 margin_bottom = 229.0
 mouse_filter = 2

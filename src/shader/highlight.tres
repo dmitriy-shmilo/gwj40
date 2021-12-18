@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=44]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform vec4 line_color : hint_color = vec4(1);
@@ -25,6 +25,6 @@ void fragment() {
 
 [resource]
 resource_local_to_scene = true
-shader = SubResource( 44 )
+shader = SubResource( 1 )
 shader_param/line_color = Color( 1, 1, 1, 1 )
 shader_param/show_line = 0.0
