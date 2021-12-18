@@ -1,11 +1,17 @@
 extends Character
 class_name Customer
 
+const BODY_TEXTURES = [
+	preload("res://assets/art/customer1.png"),
+	preload("res://assets/art/customer2.png")
+]
+
 signal finished(customer, order)
 signal ordered(customer, text, order)
 signal left(customer)
 signal unfocused(customer, player)
 
+var texture_index: int = 0
 var current_seat: Seat = null
 var current_order: Order = null
 
@@ -18,6 +24,8 @@ func enter(seat: Seat) -> void:
 	current_seat = seat
 	current_seat.is_busy = true
 	_character_state.transition("EnteringState")
+	texture_index = randi() % BODY_TEXTURES.size()
+	_body_sprite.texture = BODY_TEXTURES[texture_index]
 
 
 # TODO: pass different moods here
