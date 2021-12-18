@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://day_screen/day_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://ui/fader.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/art/window.png" type="Texture" id=15]
 [ext_resource path="res://assets/art/player2.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/portraits.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/items.png" type="Texture" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 6, 16, 6, 10, 16, 10 )
@@ -955,6 +957,39 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 16, 21 )
+
+[sub_resource type="AtlasTexture" id=58]
+resource_local_to_scene = true
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=59]
+resource_local_to_scene = true
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=60]
+resource_local_to_scene = true
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=61]
+resource_local_to_scene = true
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=62]
+resource_local_to_scene = true
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 17 )
+region = Rect2( 16, 0, 16, 21 )
+
 [sub_resource type="AtlasTexture" id=52]
 atlas = ExtResource( 12 )
 region = Rect2( 128, 0, 16, 16 )
@@ -1021,7 +1056,6 @@ playing = true
 script = ExtResource( 6 )
 
 [node name="Hud" type="Control" parent="Gui"]
-modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
 margin_bottom = 30.0
 theme = ExtResource( 2 )
@@ -1032,6 +1066,7 @@ __meta__ = {
 [node name="Character1" type="Control" parent="Gui/Hud"]
 anchor_bottom = 1.0
 margin_right = 128.0
+margin_bottom = -6.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1039,19 +1074,35 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="Gui/Hud/Character1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -10.0
 color = Color( 0.705882, 0.705882, 0.705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Inventory" parent="Gui/Hud/Character1" instance=ExtResource( 7 )]
+margin_left = 28.0
+margin_top = -16.0
+margin_bottom = 0.0
+
+[node name="Portrait" type="TextureRect" parent="Gui/Hud/Character1"]
+anchor_right = 0.03125
+anchor_bottom = 0.133333
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 16.0
+margin_bottom = 21.0
+texture = SubResource( 56 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Character2" type="Control" parent="Gui/Hud"]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -128.0
+margin_bottom = -6.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1061,21 +1112,54 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -128.0
-margin_bottom = -10.0
 color = Color( 0.705882, 0.705882, 0.705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Inventory" parent="Gui/Hud/Character2" instance=ExtResource( 7 )]
+margin_top = -16.0
+margin_right = -28.0
+margin_bottom = 0.0
+alignment = 2
+
+[node name="Item1" parent="Gui/Hud/Character2/Inventory" index="0"]
+texture = SubResource( 58 )
+
+[node name="Item2" parent="Gui/Hud/Character2/Inventory" index="1"]
+texture = SubResource( 59 )
+
+[node name="Item3" parent="Gui/Hud/Character2/Inventory" index="2"]
+texture = SubResource( 60 )
+
+[node name="Item4" parent="Gui/Hud/Character2/Inventory" index="3"]
+texture = SubResource( 61 )
+
+[node name="Item5" parent="Gui/Hud/Character2/Inventory" index="4"]
+texture = SubResource( 62 )
+
+[node name="Portrait" type="TextureRect" parent="Gui/Hud/Character2"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = 25.0
+texture = SubResource( 57 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CashLabel" type="Label" parent="Gui/Hud"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -126.0
-margin_top = -13.0
+margin_left = -128.0
+margin_top = 7.0
+margin_right = -2.0
+margin_bottom = 20.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "$0.00"
 align = 2
@@ -1083,9 +1167,10 @@ align = 2
 [node name="TimeProgressStart" type="TextureRect" parent="Gui/Hud"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -11.0
-margin_right = 16.0
-margin_bottom = 5.0
+margin_left = 172.0
+margin_top = -7.0
+margin_right = 188.0
+margin_bottom = 9.0
 texture = SubResource( 52 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1094,10 +1179,10 @@ __meta__ = {
 [node name="TimeProgress" type="TextureProgress" parent="Gui/Hud"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = -11.0
-margin_right = 67.0
-margin_bottom = 5.0
+margin_left = 187.0
+margin_top = -7.0
+margin_right = 239.0
+margin_bottom = 9.0
 value = 50.0
 texture_under = SubResource( 54 )
 texture_progress = SubResource( 55 )
@@ -1111,10 +1196,10 @@ __meta__ = {
 [node name="TimeProgressEnd" type="TextureRect" parent="Gui/Hud"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 68.0
-margin_top = -11.0
-margin_right = 84.0
-margin_bottom = 5.0
+margin_left = 240.0
+margin_top = -7.0
+margin_right = 256.0
+margin_bottom = 9.0
 texture = SubResource( 53 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1380,4 +1465,5 @@ autoplay = true
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="timeout" from="CustomerSpawnTimer" to="." method="_on_CustomerSpawnTimer_timeout"]
 
+[editable path="Gui/Hud/Character2/Inventory"]
 [editable path="YSort/Character2"]

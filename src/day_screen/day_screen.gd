@@ -35,10 +35,13 @@ var _day_ended = false
 var _orders = []
 
 func _ready():
-	for c in _characters:
-		c.selected = false
-		c.connect("inventory_changed", self, "_on_character_inventory_changed")
+	for i in range(_characters.size()):
+		_characters[i].selected = false
+		_characters[i].connect("inventory_changed", self, "_on_character_inventory_changed")
+		_gui.deselect_character(i)
+
 	_characters[_selected_character].selected = true
+	_gui.select_character(_selected_character)
 	_create_customer(_seats[0])
 	_gui.update_cash(_current_cash)
 	
@@ -58,8 +61,10 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("next_char"):
 		_characters[_selected_character].selected = false
+		_gui.deselect_character(_selected_character)
 		_selected_character = (_selected_character + 1) % _characters.size()
 		_characters[_selected_character].selected = true
+		_gui.select_character(_selected_character)
 	
 	if _day_ended:
 		return

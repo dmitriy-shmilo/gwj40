@@ -1,6 +1,9 @@
 extends Node
 class_name Gui
 
+const SELECTED_ALPHA = 0.8
+const DESELECTED_ALPHA = 0.55
+
 signal dialog_hidden
 signal dialog_shown
 
@@ -9,8 +12,12 @@ onready var _dialog_container: Panel = $"DialogContainer"
 onready var _dialog_text: RichTextLabel = $"DialogContainer/Text"
 onready var _dialog_inventory: InventoryGui = $"DialogContainer/Inventory"
 onready var _time_progress: TextureProgress = $"Hud/TimeProgress"
-
 onready var _cash_label: Label = $"Hud/CashLabel"
+
+onready var _characters: = [
+	$"Hud/Character1",
+	$"Hud/Character2"
+]
 onready var _inventories: = [
 	$"Hud/Character1/Inventory",
 	$"Hud/Character2/Inventory"
@@ -59,6 +66,14 @@ func hide_dialog() -> void:
 func update_time_progress(current: float, total: float) -> void:
 	_time_progress.max_value = total
 	_time_progress.value = current
+
+
+func select_character(index: int) -> void:
+	_characters[index].modulate.a = SELECTED_ALPHA
+
+
+func deselect_character(index: int) -> void:
+	_characters[index].modulate.a = DESELECTED_ALPHA
 
 
 func _on_DialogContainer_gui_input(event: InputEvent) -> void:
