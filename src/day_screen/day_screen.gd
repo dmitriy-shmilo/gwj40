@@ -7,6 +7,8 @@ const CUSTOMER = preload("res://day_screen/character/customer/customer.tscn")
 export(float) var day_length = 20.0
 
 onready var _gui: Gui = $"Gui"
+onready var _camera: Camera2D = $"PlayerCamera"
+onready var _floor_tilemap: TileMap = $"FloorWallTileMap"
 onready var _fader: Fader = $"Fader"
 onready var _space: YSort = $"YSort"
 onready var _entry_point = $"YSort/Entry"
@@ -43,6 +45,14 @@ func _ready():
 	_characters[_selected_character].selected = true
 	_create_customer(_seats[0])
 	_gui.update_cash(_current_cash)
+	
+	var rect = _floor_tilemap.get_used_rect()
+	rect.position += Vector2.ONE
+	rect.size -= Vector2.ONE * 2
+	_camera.limit_top = rect.position.y * _floor_tilemap.cell_size.y
+	_camera.limit_left = rect.position.x * _floor_tilemap.cell_size.x
+	_camera.limit_bottom = (rect.position.y + rect.size.y) * _floor_tilemap.cell_size.y
+	_camera.limit_right = (rect.position.x + rect.size.x) * _floor_tilemap.cell_size.x
 
 
 func _process(delta: float) -> void:
