@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://day_screen/day_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/art/window.png" type="Texture" id=15]
 [ext_resource path="res://assets/art/player2.png" type="Texture" id=16]
 [ext_resource path="res://assets/art/portraits.png" type="Texture" id=17]
+[ext_resource path="res://day_screen/clutter/standing_plant.tscn" type="PackedScene" id=18]
 [ext_resource path="res://day_screen/interactive/cinnamon_dispencer.tscn" type="PackedScene" id=19]
 [ext_resource path="res://day_screen/interactive/milk_dispencer.tscn" type="PackedScene" id=20]
 [ext_resource path="res://day_screen/interactive/ice_dispencer.tscn" type="PackedScene" id=21]
@@ -985,6 +986,12 @@ region = Rect2( 144, 0, 16, 16 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=49]
 
+[sub_resource type="StreamTexture" id=59]
+load_path = "res://.import/tilemap.png-1b070e0afe93a04235877cda3cbed0b8.stex"
+
+[sub_resource type="StreamTexture" id=61]
+load_path = "res://.import/tilemap.png-1b070e0afe93a04235877cda3cbed0b8.stex"
+
 [sub_resource type="AtlasTexture" id=50]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 96, 16, 16 )
@@ -992,6 +999,15 @@ region = Rect2( 0, 96, 16, 16 )
 [sub_resource type="AtlasTexture" id=51]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 64, 16, 32 )
+
+[sub_resource type="StreamTexture" id=58]
+load_path = "res://.import/tilemap.png-1b070e0afe93a04235877cda3cbed0b8.stex"
+
+[sub_resource type="StreamTexture" id=62]
+load_path = "res://.import/tilemap.png-1b070e0afe93a04235877cda3cbed0b8.stex"
+
+[sub_resource type="StreamTexture" id=60]
+load_path = "res://.import/tilemap.png-1b070e0afe93a04235877cda3cbed0b8.stex"
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -1021,13 +1037,13 @@ tile_data = PoolIntArray( 0, 14, 0, 3, 14, 0, 65536, 13, 0, 65537, 10, 0, 65538,
 [node name="WindowSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 144, 16 )
 frames = SubResource( 48 )
-frame = 15
+frame = 14
 playing = true
 
 [node name="WindowSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 176, 16 )
 frames = SubResource( 48 )
-frame = 9
+frame = 8
 playing = true
 
 [node name="Gui" type="CanvasLayer" parent="."]
@@ -1185,6 +1201,7 @@ __meta__ = {
 }
 
 [node name="DialogContainer" type="Panel" parent="Gui"]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1319,11 +1336,23 @@ position = Vector2( 9, 81 )
 [node name="Table2" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 151, 111 )
 
+[node name="Plant" type="Sprite" parent="YSort/Table2"]
+position = Vector2( -1, -10 )
+texture = SubResource( 59 )
+region_enabled = true
+region_rect = Rect2( 96, 32, 16, 16 )
+
 [node name="Table3" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 28, 138 )
 
 [node name="Table4" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 88, 137 )
+
+[node name="Plant2" type="Sprite" parent="YSort/Table4"]
+position = Vector2( -3, -5 )
+texture = SubResource( 61 )
+region_enabled = true
+region_rect = Rect2( 48, 80, 16, 16 )
 
 [node name="Entry" type="Position2D" parent="YSort"]
 position = Vector2( 80, 237 )
@@ -1354,6 +1383,48 @@ texture = SubResource( 51 )
 position = Vector2( 131, 108 )
 scale = Vector2( -1, 1 )
 texture = SubResource( 51 )
+
+[node name="CashRegister" type="Sprite" parent="YSort"]
+position = Vector2( 57, 78 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 48, 64, 16, 16 )
+
+[node name="Clipboard" type="Sprite" parent="YSort"]
+position = Vector2( 74, 27 )
+texture = SubResource( 58 )
+region_enabled = true
+region_rect = Rect2( 96, 80, 16, 16 )
+
+[node name="Plant" type="Sprite" parent="YSort"]
+position = Vector2( 55, 95 )
+texture = SubResource( 59 )
+region_enabled = true
+region_rect = Rect2( 96, 32, 16, 16 )
+
+[node name="Cups" type="Sprite" parent="YSort"]
+position = Vector2( 58, 49 )
+texture = SubResource( 62 )
+region_enabled = true
+region_rect = Rect2( 80, 48, 32, 16 )
+
+[node name="Lamp" type="Sprite" parent="YSort"]
+position = Vector2( 8, 15 )
+z_index = 1
+texture = SubResource( 60 )
+region_enabled = true
+region_rect = Rect2( 160, 112, 16, 32 )
+
+[node name="StandingPlant" parent="YSort" instance=ExtResource( 18 )]
+
+[node name="StandingPlant2" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 212, 146 )
+
+[node name="StandingPlant3" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 124, 146 )
+
+[node name="StandingPlant4" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 210, 68 )
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 current = true
