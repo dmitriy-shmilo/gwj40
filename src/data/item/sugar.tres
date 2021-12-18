@@ -1,11 +1,17 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://data/item/item.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/items.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 8, 8 )
 
 [resource]
 script = ExtResource( 1 )
 id = 2
 sprite_frame = 2
+texture = SubResource( 1 )
 unique = false
 name = "item_sugar"
 sell_cost = 1.0
