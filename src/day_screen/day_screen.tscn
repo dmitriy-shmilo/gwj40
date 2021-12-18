@@ -961,30 +961,6 @@ animations = [ {
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 16, 21 )
 
-[sub_resource type="AtlasTexture" id=58]
-resource_local_to_scene = true
-atlas = ExtResource( 18 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=59]
-resource_local_to_scene = true
-atlas = ExtResource( 18 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=60]
-resource_local_to_scene = true
-atlas = ExtResource( 18 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=61]
-resource_local_to_scene = true
-atlas = ExtResource( 18 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=62]
-resource_local_to_scene = true
-atlas = ExtResource( 18 )
-region = Rect2( 0, 0, 8, 8 )
 
 [sub_resource type="AtlasTexture" id=57]
 atlas = ExtResource( 17 )

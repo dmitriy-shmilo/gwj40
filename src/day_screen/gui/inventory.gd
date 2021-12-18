@@ -7,8 +7,7 @@ func set_items(items: Array) -> void:
 	for i in range(pictures.size()):
 		if i >= items.size():
 			pictures[i].visible = false
-			pictures[i].texture.region.position.x = 0
+			pictures[i].texture = null
 			continue
 		pictures[i].visible = true
-		# TODO: replace this with an AtlasTexture resource on an item
-		pictures[i].texture.region.position.x = items[i].sprite_frame * 8
+		pictures[i].texture = items[i].texture

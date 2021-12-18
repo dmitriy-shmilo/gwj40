@@ -5,14 +5,14 @@
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
-region = Rect2( 112, 80, 16, 16 )
+region = Rect2( 144, 80, 16, 16 )
 
 [resource]
 script = ExtResource( 1 )
-id = 1
-sprite_frame = 1
+id = 2
+sprite_frame = 2
 texture = SubResource( 1 )
 unique = false
-name = "item_coffee"
+name = "item_sugar"
 sell_cost = 1.0
 restock_cost = 0.5
