@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://day_screen/day_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://day_screen/interactive/cinnamon_dispencer.tscn" type="PackedScene" id=19]
 [ext_resource path="res://day_screen/interactive/milk_dispencer.tscn" type="PackedScene" id=20]
 [ext_resource path="res://day_screen/interactive/ice_dispencer.tscn" type="PackedScene" id=21]
+[ext_resource path="res://day_screen/clutter/fireplace.tscn" type="PackedScene" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 6, 16, 6, 10, 16, 10 )
@@ -1000,6 +1001,9 @@ region = Rect2( 0, 96, 16, 16 )
 atlas = ExtResource( 9 )
 region = Rect2( 0, 64, 16, 32 )
 
+[sub_resource type="StreamTexture" id=63]
+load_path = "res://.import/tilemap.png-1b070e0afe93a04235877cda3cbed0b8.stex"
+
 [sub_resource type="StreamTexture" id=58]
 load_path = "res://.import/tilemap.png-1b070e0afe93a04235877cda3cbed0b8.stex"
 
@@ -1037,13 +1041,13 @@ tile_data = PoolIntArray( 0, 14, 0, 3, 14, 0, 65536, 13, 0, 65537, 10, 0, 65538,
 [node name="WindowSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 144, 16 )
 frames = SubResource( 48 )
-frame = 14
+frame = 13
 playing = true
 
 [node name="WindowSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 176, 16 )
 frames = SubResource( 48 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="Gui" type="CanvasLayer" parent="."]
@@ -1160,6 +1164,7 @@ text = "$0.00"
 align = 2
 
 [node name="TimeProgressStart" type="TextureRect" parent="Gui/Hud"]
+modulate = Color( 1, 1, 1, 0.588235 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 172.0
@@ -1172,6 +1177,7 @@ __meta__ = {
 }
 
 [node name="TimeProgress" type="TextureProgress" parent="Gui/Hud"]
+modulate = Color( 1, 1, 1, 0.588235 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 187.0
@@ -1189,6 +1195,7 @@ __meta__ = {
 }
 
 [node name="TimeProgressEnd" type="TextureRect" parent="Gui/Hud"]
+modulate = Color( 1, 1, 1, 0.588235 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 240.0
@@ -1201,7 +1208,6 @@ __meta__ = {
 }
 
 [node name="DialogContainer" type="Panel" parent="Gui"]
-visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1331,7 +1337,7 @@ position = Vector2( 8, 53 )
 position = Vector2( 56, 31 )
 
 [node name="CinnamonDispenser" parent="YSort" instance=ExtResource( 19 )]
-position = Vector2( 9, 81 )
+position = Vector2( 9, 88 )
 
 [node name="Table2" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 151, 111 )
@@ -1355,7 +1361,7 @@ region_enabled = true
 region_rect = Rect2( 48, 80, 16, 16 )
 
 [node name="Entry" type="Position2D" parent="YSort"]
-position = Vector2( 80, 237 )
+position = Vector2( 80, 203 )
 
 [node name="Chair" type="Sprite" parent="YSort"]
 position = Vector2( 10, 137 )
@@ -1389,6 +1395,12 @@ position = Vector2( 57, 78 )
 texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 48, 64, 16, 16 )
+
+[node name="Sink" type="Sprite" parent="YSort"]
+position = Vector2( 8, 71 )
+texture = SubResource( 63 )
+region_enabled = true
+region_rect = Rect2( 80, 32, 16, 16 )
 
 [node name="Clipboard" type="Sprite" parent="YSort"]
 position = Vector2( 74, 27 )
@@ -1425,6 +1437,9 @@ position = Vector2( 124, 146 )
 
 [node name="StandingPlant4" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 210, 68 )
+
+[node name="Fireplace" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( 232, 34 )
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 current = true
