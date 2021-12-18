@@ -1,6 +1,7 @@
 extends Node2D
 class_name DayScreen
 
+const BASE_ITEM = preload("res://data/item/coffee.tres")
 const CUSTOMER = preload("res://day_screen/character/customer/customer.tscn")
 
 export(float) var day_length = 20.0
@@ -134,6 +135,9 @@ func _on_ContinueButton_pressed():
 func _on_CustomerSpawnTimer_timeout() -> void:
 	# TODO: should probably just stop the timer
 	if _current_time >= day_length:
+		return
+	
+	if UserSaveData.stocks.get_stock(BASE_ITEM.id) <= 0:
 		return
 
 	var index = randi() % _seats.size()
