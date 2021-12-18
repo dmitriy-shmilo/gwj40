@@ -4,7 +4,7 @@ class_name DayScreen
 const BASE_ITEM = preload("res://data/item/coffee.tres")
 const CUSTOMER = preload("res://day_screen/character/customer/customer.tscn")
 
-export(float) var day_length = 20.0
+export(float) var day_length = 60.0
 
 onready var _gui: Gui = $"Gui"
 onready var _camera: Camera2D = $"PlayerCamera"
@@ -16,18 +16,14 @@ onready var _characters = [
 	$"YSort/Character1",
 	$"YSort/Character2"
 ]
-onready var _seat_paths = [
-	$"SeatPath1",
-	$"SeatPath2",
-	$"SeatPath3",
-	$"SeatPath4",
-]
 
 onready var _seats = [
-	$"YSort/Seat1",
-	$"YSort/Seat2",
-	$"YSort/Seat3",
-	$"YSort/Seat4"
+	$"Seats/Seat1",
+	$"Seats/Seat2",
+	$"Seats/Seat3",
+	$"Seats/Seat4",
+	$"Seats/Seat5",
+	$"Seats/Seat6",
 ]
 
 var _current_cash: float = UserSaveData.current_cash
@@ -150,9 +146,14 @@ func _on_CustomerSpawnTimer_timeout() -> void:
 	if UserSaveData.stocks.get_stock(BASE_ITEM.id) <= 0:
 		return
 
-	var index = randi() % _seats.size()
-	if _seats[index].is_busy:
-		return
+	var index = -1
+	for i in range(_seats.size()):
+		if not _seats[i].is_busy:
+			index = i
+			break
 	
+	if index < 0:
+		return
+
 	_create_customer(_seats[index])
 
