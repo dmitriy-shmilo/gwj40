@@ -51,7 +51,9 @@ func _set_from_data(data: Dictionary) -> void:
 	_save_time = _get_or_default(data, "_save_time", 0)
 	current_cash = _get_or_default(data, "current_cash", 0.0)
 	current_day = _get_or_default(data, "current_day", 0)
-	stocks._data = _get_or_default(data, "stocks", {})
+	var stocks_data = _get_or_default(data, "stocks", {})
+	for key in stocks_data.keys():
+		stocks._data[int(key)] = stocks_data[key]
 
 
 func _get_or_default(data: Dictionary, key: String, default) -> Object:
