@@ -8,6 +8,7 @@ var items = [
 ]
 
 var _data = {}
+var _reserve = {}
 
 func _init() -> void:
 	for item in items:
@@ -33,3 +34,23 @@ func modify_stock(id: int, value: int) -> int:
 
 	_data[id] = value
 	return value
+
+
+func reserve(id: int, amount: int) -> bool:
+	var total = amount
+	if _reserve.has(id):
+		total += _reserve[id]
+		
+	if _data[id] >= total:
+		_reserve[id] = total
+		return true
+	
+	return false
+
+
+func get_reserve(id: int) -> int:
+	if _reserve.has(id):
+		return _reserve[id]
+
+	_reserve[id] = 0
+	return 0
