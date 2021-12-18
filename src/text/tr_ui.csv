@@ -3,6 +3,8 @@ ui_night_title,"Day #%d ended","Конец %d дня"
 ui_next_day,"Next Day","Следующий день"
 ui_order_list_header,"%d orders served:","%d заказов выполнено:"
 ui_order_list_footer,"$%0.2f paid + $%0.2f tipped","$%0.2f оплачено + $%0.2f чаевых"
+ui_stocks_list_header,"Stocks","Запасы"
+ui_stocks_list_footer,"Total cost: $%0.2f","Общая стоимость $%0.2f"
 ui_wrong_order,"(wrong order)","(не тот заказ)"
 ui_pause,Pause,Пауза
 ui_retry,Retry,Еще Раз

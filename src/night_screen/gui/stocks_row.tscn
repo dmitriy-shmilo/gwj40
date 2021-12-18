@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://night_screen/gui/stocks_row.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/items.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends SpinBox
+
+func _ready() -> void:
+	get_line_edit() \\
+		.add_constant_override(\"minimum_spaces\", 3)
+"
+
+[node name="StocksRow" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 16 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+margin_right = 8.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 8, 8 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 4
+
+[node name="ItemNameLabel" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 6.0
+margin_right = 87.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "item_name"
+
+[node name="QuantityDown" type="Button" parent="."]
+margin_left = 91.0
+margin_right = 111.0
+margin_bottom = 25.0
+text = "-"
+
+[node name="QuantityBox" type="SpinBox" parent="."]
+margin_left = 115.0
+margin_right = 198.0
+margin_bottom = 25.0
+custom_icons/updown = SubResource( 2 )
+script = SubResource( 3 )
+
+[node name="QuantityUp" type="Button" parent="."]
+margin_left = 202.0
+margin_right = 222.0
+margin_bottom = 25.0
+text = "+"
+
+[node name="PriceLabel" type="Label" parent="."]
+margin_left = 226.0
+margin_top = 6.0
+margin_right = 256.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "$0.00"
+align = 2
+
+[connection signal="pressed" from="QuantityDown" to="." method="_on_QuantityDown_pressed"]
+[connection signal="value_changed" from="QuantityBox" to="." method="_on_QuantityBox_value_changed"]
+[connection signal="pressed" from="QuantityUp" to="." method="_on_QuantityUp_pressed"]

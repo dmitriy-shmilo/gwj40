@@ -27,10 +27,11 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -101.0
-margin_top = 10.0
+margin_top = 4.0
 margin_right = 101.0
-margin_bottom = 23.0
+margin_bottom = 17.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "title"
 align = 1
 autowrap = true
 __meta__ = {
@@ -38,49 +39,106 @@ __meta__ = {
 }
 
 [node name="NextDayButton" type="Button" parent="."]
-anchor_left = 0.5
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -46.0
-margin_top = -34.0
-margin_right = 46.0
-margin_bottom = -7.0
+margin_left = -96.0
+margin_top = -29.0
+margin_right = -4.0
+margin_bottom = -4.0
 text = "ui_next_day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviousScreenButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -29.0
+margin_right = 24.0
+margin_bottom = -4.0
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextScreenButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -29.0
+margin_right = 45.0
+margin_bottom = -4.0
+text = ">"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fader" parent="." instance=ExtResource( 4 )]
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="OrderListContainer" type="ScrollContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 44.0
+margin_top = 20.0
 margin_right = -4.0
 margin_bottom = -38.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OrderList" type="VBoxContainer" parent="ScrollContainer"]
+[node name="OrderList" type="VBoxContainer" parent="OrderListContainer"]
 margin_right = 248.0
-margin_bottom = 110.0
+margin_bottom = 134.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="OrderListHeader" type="Label" parent="ScrollContainer/OrderList"]
+[node name="OrderListHeader" type="Label" parent="OrderListContainer/OrderList"]
 margin_right = 248.0
 margin_bottom = 13.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ui_order_list_header"
 
-[node name="OrderListFooter" type="Label" parent="ScrollContainer/OrderList"]
+[node name="OrderListFooter" type="Label" parent="OrderListContainer/OrderList"]
 margin_top = 17.0
 margin_right = 248.0
 margin_bottom = 30.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ui_order_list_footer"
 
+[node name="StocksListContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 20.0
+margin_right = -4.0
+margin_bottom = -38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StocksList" type="VBoxContainer" parent="StocksListContainer"]
+margin_right = 248.0
+margin_bottom = 134.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StocksListHeader" type="Label" parent="StocksListContainer/StocksList"]
+margin_right = 248.0
+margin_bottom = 13.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ui_stocks_list_header"
+
+[node name="StocksListFooter" type="Label" parent="StocksListContainer/StocksList"]
+margin_top = 17.0
+margin_right = 248.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ui_stocks_list_footer"
+
 [connection signal="pressed" from="NextDayButton" to="." method="_on_NextDayButton_pressed"]
+[connection signal="pressed" from="PreviousScreenButton" to="." method="_on_PreviousScreenButton_pressed"]
+[connection signal="pressed" from="NextScreenButton" to="." method="_on_NextScreenButton_pressed"]
