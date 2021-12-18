@@ -8,6 +8,7 @@ onready var _dialog_tween: Tween = $"DialogTween"
 onready var _dialog_container: Panel = $"DialogContainer"
 onready var _dialog_text: RichTextLabel = $"DialogContainer/Text"
 onready var _dialog_inventory: InventoryGui = $"DialogContainer/Inventory"
+onready var _time_progress: TextureProgress = $"Hud/TimeProgress"
 
 onready var _cash_label: Label = $"Hud/CashLabel"
 onready var _inventories: = [
@@ -53,6 +54,11 @@ func hide_dialog() -> void:
 	_dialog_tween.interpolate_property(_dialog_container, "modulate:a", _dialog_container.modulate.a, 0.0, 0.25)
 	_dialog_tween.start()
 	emit_signal("dialog_hidden")
+
+
+func update_time_progress(current: float, total: float) -> void:
+	_time_progress.max_value = total
+	_time_progress.value = current
 
 
 func _on_DialogContainer_gui_input(event: InputEvent) -> void:

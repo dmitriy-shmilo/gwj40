@@ -64,11 +64,13 @@ func _process(delta: float) -> void:
 	if _day_ended:
 		return
 	
-	_current_time += delta	
+	_current_time += delta
 	if _current_time >= day_length:
 		_current_time = day_length
 		if _current_customers.size() == 0:
 			_end_day()
+	
+	_gui.update_time_progress(_current_time, day_length)
 
 
 func _unhandled_input(event):
