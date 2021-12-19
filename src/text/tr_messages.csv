@@ -1,5 +1,10 @@
 key,en,ru
-msg_order,"Just these please","Вот это, пожалуйста"
+msg_order0,"Coffee, please.","Кофе, пожалуйста."
+msg_order1,"Just this please.","Вот это, пожалуйста."
+msg_order2,"Your best coffee please.","Ваш лучший кофе, пожалуйста."
+msg_order3,"Extra fine grind for me!","Мне самый мелкий помол!"
+msg_order4,"Need some Joe!","Кофеечку бы."
+msg_order5,"I need something to wake up.","Мне бы что-то чтоб проснуться."
 msg_out_of_stock,"Out of stock!","Закончилось!"
 msg_missing_base,"Start with a coffee.","Начните с кофе."
 msg_base_already_present,"You alrady have coffee.","У вас уже есть кофе"

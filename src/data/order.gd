@@ -1,12 +1,13 @@
 extends Node
 class_name Order
 
-var ordered_items = [] setget set_ordered_items
-var served_items = [] setget set_served_items
-var ordered_cost = 0.0
-var served_cost = 0.0
-var payment = 0.0
-var tips = 0.0
+var order_text_id: int = 1
+var ordered_items: Array = [] setget set_ordered_items
+var served_items: Array = [] setget set_served_items
+var ordered_cost: float = 0.0
+var served_cost: float = 0.0
+var payment: float = 0.0
+var tips: float = 0.0
 
 func set_ordered_items(items: Array) -> void:
 	ordered_items = items

@@ -28,14 +28,15 @@ func interact(player: Player) -> void:
 			return
 
 		var order = Order.new()
+		order.order_text_id = randi() % 6
 		order.ordered_items = items
 		_customer.current_order = order
-		_customer.emit_signal("ordered", _customer, "msg_order", _customer.current_order)
+		_customer.emit_signal("ordered", _customer, "msg_order" + str(_customer.current_order.order_text_id), _customer.current_order)
 		_customer.clear_mood()
 		return
 
 	if player.get_inventory().size() == 0:
-		_customer.emit_signal("ordered", _customer, "msg_order", _customer.current_order)
+		_customer.emit_signal("ordered", _customer, "msg_order" + str(_customer.current_order.order_text_id), _customer.current_order)
 		return
 	
 	_customer.current_order.served_items = player.get_inventory().duplicate()
