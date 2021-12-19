@@ -122,6 +122,12 @@ func _end_day() -> void:
 	_day_ended = true
 	_fader.fade_out()
 	yield(_fader, "fade_out_completed")
+
+	# return items from player inventories to the stocks
+	for player in _characters:
+		for item in player.get_inventory():
+			UserSaveData.stocks.modify_stock(item.id, 1)
+
 	UserSaveData.current_cash = _current_cash
 	UserSaveData.last_served_orders = _orders
 	get_tree().change_scene("res://night_screen/night_screen.tscn")
