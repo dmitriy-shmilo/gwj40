@@ -9,7 +9,7 @@
 [ext_resource path="res://day_screen/character/customer/customer_entering_state.gd" type="Script" id=7]
 [ext_resource path="res://day_screen/character/customer/customer_consuming_state.gd" type="Script" id=8]
 [ext_resource path="res://day_screen/interactive/interactive_receiver.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/art/ui.png" type="Texture" id=10]
+[ext_resource path="res://day_screen/character/customer/mood_new.tres" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -238,7 +238,6 @@ position = Vector2( 0, -10 )
 texture = ExtResource( 6 )
 hframes = 3
 vframes = 4
-frame = 10
 region_rect = Rect2( 0, 0, 16, 18 )
 
 [node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -279,10 +278,9 @@ script = ExtResource( 3 )
 [node name="Receiver" parent="." instance=ExtResource( 9 )]
 interaction_time = 1.0
 
-[node name="Heart" type="Sprite" parent="."]
+[node name="MoodIcon" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 10 )
-region_enabled = true
 region_rect = Rect2( 496, 0, 16, 16 )
 
 [node name="Tween" type="Tween" parent="."]

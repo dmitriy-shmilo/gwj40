@@ -1,6 +1,18 @@
 extends Character
 class_name Customer
 
+enum Mood {
+	new = 0,
+	happy = 1,
+	normal = 2,
+	unhappy = 3
+}
+const MOOD_TEXTURES = [
+	preload("res://day_screen/character/customer/mood_new.tres"),
+	preload("res://day_screen/character/customer/mood_happy.tres"),
+	preload("res://day_screen/character/customer/mood_normal.tres"),
+	preload("res://day_screen/character/customer/mood_unhappy.tres")
+]
 const BODY_TEXTURES = [
 	preload("res://assets/art/customer1.png"),
 	preload("res://assets/art/customer2.png"),
@@ -18,7 +30,7 @@ var current_seat: Seat = null
 var current_order: Order = null
 
 onready var _tween: Tween = $"Tween"
-onready var _heart: Sprite = $"Heart"
+onready var _mood_icon: Sprite = $"MoodIcon"
 onready var _receiver: InteractiveReceiver = $"Receiver"
 onready var _body_sprite: Sprite = $"BodySprite"
 
@@ -30,13 +42,22 @@ func enter(seat: Seat) -> void:
 	_body_sprite.texture = BODY_TEXTURES[texture_index]
 
 
-# TODO: pass different moods here
-func show_mood() -> void:
-	_tween.interpolate_property(_heart, "modulate:a", 0, 1.0, 0.25)
-	_tween.interpolate_property(_heart, "position", Vector2.ZERO, Vector2(0, -16), 0.25)
+func show_mood(mood: int, temporary: bool) -> void:
+	_mood_icon.texture = MOOD_TEXTURES[mood]
+	_tween.interpolate_property(_mood_icon, "modulate:a", 0, 1.0, 0.25)
+	_tween.interpolate_property(_mood_icon, "position", Vector2.ZERO, Vector2(0, -21), 0.25)
 	_tween.start()
+	
+	if not temporary:
+		return
+
 	yield(_tween, "tween_all_completed")
-	_heart.modulate.a = 0
+	clear_mood()
+
+
+func clear_mood() -> void:
+	_tween.interpolate_property(_mood_icon, "modulate:a", 1.0, 0.0, 0.25)
+	_tween.start()
 
 
 func _on_InteractiveReceiver_interaction_finished(source) -> void:
