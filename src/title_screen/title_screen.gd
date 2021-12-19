@@ -35,6 +35,14 @@ func _on_SettingsButton_pressed():
 func _on_NewGameButton_pressed():
 	_fader.fade_out()
 	yield(_fader, "fade_out_completed")
+	UserSaveData.new_game()
+	var err = get_tree().change_scene("res://day_screen/day_screen.tscn")
+	ErrorHandler.handle(err)
+
+
+func _on_ContinueGameButton_pressed() -> void:
+	_fader.fade_out()
+	yield(_fader, "fade_out_completed")
 	var err = get_tree().change_scene("res://day_screen/day_screen.tscn")
 	ErrorHandler.handle(err)
 
@@ -53,3 +61,4 @@ func _transition_to(scene: Control) -> void:
 
 	_transition_target = null
 	_fader.fade_in()
+

@@ -19,25 +19,31 @@ __meta__ = {
 }
 
 [node name="TitleScene" parent="." instance=ExtResource( 1 )]
+margin_top = -85.0
+margin_bottom = 85.0
 
 [node name="NewGameButton" parent="TitleScene" index="0"]
 margin_bottom = 25.0
 
-[node name="SettingsButton" parent="TitleScene" index="1"]
+[node name="ContinueGameButton" parent="TitleScene" index="1"]
 margin_top = 29.0
 margin_bottom = 54.0
 
-[node name="TutorialButton" parent="TitleScene" index="2"]
+[node name="SettingsButton" parent="TitleScene" index="2"]
 margin_top = 58.0
 margin_bottom = 83.0
 
-[node name="CreditsButton" parent="TitleScene" index="3"]
+[node name="TutorialButton" parent="TitleScene" index="3"]
 margin_top = 87.0
 margin_bottom = 112.0
 
-[node name="QuitButton" parent="TitleScene" index="4"]
+[node name="CreditsButton" parent="TitleScene" index="4"]
 margin_top = 116.0
 margin_bottom = 141.0
+
+[node name="QuitButton" parent="TitleScene" index="5"]
+margin_top = 145.0
+margin_bottom = 170.0
 
 [node name="CreditsScene" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -56,6 +62,7 @@ autoplay = true
 bus = "Music"
 
 [connection signal="pressed" from="TitleScene/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="TitleScene/ContinueGameButton" to="." method="_on_ContinueGameButton_pressed"]
 [connection signal="pressed" from="TitleScene/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="TitleScene/TutorialButton" to="." method="_on_TutorialButton_pressed"]
 [connection signal="pressed" from="TitleScene/CreditsButton" to="." method="_on_CreditsButton_pressed"]
