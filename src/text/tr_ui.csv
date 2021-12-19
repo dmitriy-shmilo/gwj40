@@ -5,6 +5,8 @@ ui_order_list_header,"%d orders served:","%d заказов выполнено:"
 ui_order_list_footer,"$%0.2f paid + $%0.2f tipped","$%0.2f оплачено + $%0.2f чаевых"
 ui_stocks_list_header,"Stocks","Запасы"
 ui_stocks_list_footer,"Total cost: $%0.2f","Общая стоимость $%0.2f"
+ui_stocks_list_missing_items,"You're out of coffee!","У вас закончился кофе!"
+ui_stocks_list_debt,"You're out of money!","У вас закончились деньги!"
 ui_wrong_order,"(wrong order)","(не тот заказ)"
 ui_pause,Pause,Пауза
 ui_retry,Retry,Еще Раз

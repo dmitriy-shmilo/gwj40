@@ -20,6 +20,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0.917647, 0.921569, 0.937255, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,6 +34,23 @@ margin_right = 101.0
 margin_bottom = 17.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "title"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CashLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -81.0
+margin_top = -22.0
+margin_right = 30.0
+margin_bottom = -9.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "$0.00"
 align = 1
 autowrap = true
 __meta__ = {
@@ -126,6 +144,20 @@ margin_right = 248.0
 margin_bottom = 134.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="MissingItemsLabel" type="Label" parent="StocksListContainer/StocksList"]
+visible = false
+margin_right = 248.0
+margin_bottom = 13.0
+custom_colors/font_color = Color( 0.619608, 0.25098, 0.301961, 1 )
+text = "ui_stocks_list_missing_items"
+
+[node name="InDebtLabel" type="Label" parent="StocksListContainer/StocksList"]
+visible = false
+margin_right = 248.0
+margin_bottom = 13.0
+custom_colors/font_color = Color( 0.619608, 0.25098, 0.301961, 1 )
+text = "ui_stocks_list_debt"
 
 [node name="StocksListHeader" type="Label" parent="StocksListContainer/StocksList"]
 margin_right = 248.0
