@@ -8,7 +8,7 @@ const POSSIBLE_ITEMS = [
 ]
 
 var _current_wait_time = 0
-var _max_wait_time = 90.0
+var _max_wait_time = 120.0
 
 func enter(args: Dictionary = {}) -> void:
 	_customer.current_animation = "idle"

@@ -42,7 +42,7 @@ func _ready():
 
 	_characters[_selected_character].selected = true
 	_gui.select_character(_selected_character)
-	_create_customer(_seats[0])
+	_create_customer(_seats[randi() % _seats.size()])
 	_gui.update_cash(_current_cash)
 	
 	var rect = _floor_tilemap.get_used_rect()
@@ -153,14 +153,9 @@ func _on_CustomerSpawnTimer_timeout() -> void:
 	if UserSaveData.stocks.get_stock(BASE_ITEM.id) <= 0:
 		return
 
-	var index = -1
+	var index = randi() % _seats.size()
 	for i in range(_seats.size()):
-		if not _seats[i].is_busy:
-			index = i
-			break
-	
-	if index < 0:
-		return
-
-	_create_customer(_seats[index])
-
+		var seat = _seats[(index + i) % _seats.size()]
+		if not seat.is_busy:
+			_create_customer(seat)
+			return
