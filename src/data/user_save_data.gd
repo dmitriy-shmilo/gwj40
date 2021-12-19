@@ -31,7 +31,6 @@ func load_data() -> void:
 	var file := File.new()
 
 	if not file.file_exists(SAVE_FILE):
-		new_game()
 		save_data()
 		return
 

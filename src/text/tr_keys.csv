@@ -5,6 +5,6 @@ key_left,Left,Влево
 key_right,Right,Вправо
 key_system_pause,Pause,Пауза
 key_interact,Interact,Действие
-key_next_char,Toggle Character,Переключить персонажа
+key_next_char,Toggle Character,Перекл. перс.
 txt_credits,"Thank you for playing","Спасибо за то что играли"
 txt_tutorial,"How to play","Как играть"
