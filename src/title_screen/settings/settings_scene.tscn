@@ -133,39 +133,6 @@ margin_bottom = 16.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 2
 
-[node name="VideoSettings" type="ScrollContainer" parent="VBoxContainer/PanelContainer/TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 7.0
-margin_top = 35.0
-margin_right = -7.0
-margin_bottom = -7.0
-
-[node name="Container" type="VBoxContainer" parent="VBoxContainer/PanelContainer/TabContainer/VideoSettings"]
-margin_left = 60.0
-margin_top = 19.0
-margin_right = 158.0
-margin_bottom = 71.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_constants/separation = 20
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FullscreenCheckbox" type="CheckBox" parent="VBoxContainer/PanelContainer/TabContainer/VideoSettings/Container"]
-margin_right = 98.0
-margin_bottom = 16.0
-text = "ui_fullscreen"
-
-[node name="ParticlesCheckbox" type="CheckBox" parent="VBoxContainer/PanelContainer/TabContainer/VideoSettings/Container"]
-margin_top = 36.0
-margin_right = 98.0
-margin_bottom = 52.0
-text = "ui_particles"
-
 [node name="KeyBindings" type="ScrollContainer" parent="VBoxContainer/PanelContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -185,6 +152,39 @@ size_flags_vertical = 6
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 2
+
+[node name="OtherSettings" type="ScrollContainer" parent="VBoxContainer/PanelContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 35.0
+margin_right = -7.0
+margin_bottom = -7.0
+
+[node name="Container" type="VBoxContainer" parent="VBoxContainer/PanelContainer/TabContainer/OtherSettings"]
+margin_left = 60.0
+margin_top = 19.0
+margin_right = 158.0
+margin_bottom = 71.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenCheckbox" type="CheckBox" parent="VBoxContainer/PanelContainer/TabContainer/OtherSettings/Container"]
+margin_right = 98.0
+margin_bottom = 16.0
+text = "ui_fullscreen"
+
+[node name="CrtCheckbox" type="CheckBox" parent="VBoxContainer/PanelContainer/TabContainer/OtherSettings/Container"]
+margin_top = 36.0
+margin_right = 98.0
+margin_bottom = 52.0
+text = "ui_enable_crt"
 
 [node name="BackToTitleButton" type="Button" parent="VBoxContainer"]
 margin_left = 68.0
@@ -264,8 +264,8 @@ text = "Clear Binding"
 [connection signal="value_changed" from="VBoxContainer/PanelContainer/TabContainer/SoundSettings/Container/MasterVolume/VolumeSlider" to="." method="_on_MasterVolumeSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/PanelContainer/TabContainer/SoundSettings/Container/MusicVolume/VolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/PanelContainer/TabContainer/SoundSettings/Container/SfxVolume/VolumeSlider" to="." method="_on_SfxVolumeSlider_value_changed"]
-[connection signal="toggled" from="VBoxContainer/PanelContainer/TabContainer/VideoSettings/Container/FullscreenCheckbox" to="." method="_on_FullscreenCheckbox_toggled"]
-[connection signal="toggled" from="VBoxContainer/PanelContainer/TabContainer/VideoSettings/Container/ParticlesCheckbox" to="." method="_on_ParticlesCheckbox_toggled"]
+[connection signal="toggled" from="VBoxContainer/PanelContainer/TabContainer/OtherSettings/Container/FullscreenCheckbox" to="." method="_on_FullscreenCheckbox_toggled"]
+[connection signal="toggled" from="VBoxContainer/PanelContainer/TabContainer/OtherSettings/Container/CrtCheckbox" to="." method="_on_CrtCheckbox_toggled"]
 [connection signal="pressed" from="VBoxContainer/BackToTitleButton" to="." method="_on_BackToTitleButton_pressed"]
 [connection signal="action_remapped" from="KeyBindingPopup" to="." method="_on_KeyBindingPopup_action_remapped"]
 [connection signal="pressed" from="KeyBindingPopup/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_KeybindingCancelButton_pressed"]

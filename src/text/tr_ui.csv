@@ -11,10 +11,9 @@ ui_retry,Retry,Еще Раз
 ui_continue,Continue,Продолжить
 ui_key_none,No Key,Нет Клавиши
 ui_fullscreen,Full Screen,Полный Экран
-ui_particles,Enable Particles,Включить Частицы
 ui_enable_crt,CRT Effect,Ламповый Экран
 ui_sound_settings,Sound,Звук
-ui_video_settings,Video,Видео
+ui_other_settings,Other,Другие
 ui_key_bindings,Keyboard,Управление
 ui_master_volume,Master,Общий
 ui_music_volume,Music,Музыка

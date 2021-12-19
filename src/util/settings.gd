@@ -14,7 +14,7 @@ var music_volume:float = DEFAULT_VOLUME setget set_music_volume
 var speech_volume:float = DEFAULT_VOLUME setget set_speech_volume
 
 var fullscreen: bool = false setget set_fullscreen
-var particles: bool = true
+var crt_effect: bool = true
 
 var _master_bus_idx = -1
 var _sfx_bus_idx = -1
@@ -113,8 +113,8 @@ func _get_data() -> Dictionary:
 			"music_volume" : music_volume,
 			"speech_volume" : speech_volume
 		},
-		"video": {
-			"particles" : particles,
+		"other": {
+			"crt_effect" : crt_effect,
 			"fullscreen" : fullscreen
 		},
 		"actions" : action_map
@@ -128,9 +128,9 @@ func _set_from_data(data: Dictionary) -> void:
 		set_music_volume(data["sound"].get("music_volume", DEFAULT_VOLUME))
 		set_speech_volume(data["sound"].get("speech_volume", DEFAULT_VOLUME))
 	
-	if data.has("video"):
-		set_fullscreen(data["video"].get("fullscreen", true))
-		particles = data["video"].get("particles", true)	
+	if data.has("other"):
+		set_fullscreen(data["other"].get("fullscreen", true))
+		crt_effect = data["other"].get("crt_effect", true)	
 	
 	if data.has("actions"):
 		for action in CONFIGURABLE_KEYS:
