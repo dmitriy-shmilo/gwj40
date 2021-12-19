@@ -14,6 +14,8 @@ func new_game() -> void:
 	current_day = 1
 	stocks = Stocks.new()
 	stocks.set_stock(1, 10)
+	stocks.set_stock(2, 5)
+	stocks.set_stock(3, 2)
 	last_served_orders = []
 
 
