@@ -30,7 +30,7 @@ func refresh_costs() -> void:
 
 func get_score() -> float:
 	var tmp_served = served_items.duplicate()
-	var total = ordered_items.size() + tmp_served.size()
+	var total = float(ordered_items.size() * 2 + tmp_served.size())
 	var score = 1.0
 	
 	for item in ordered_items:
@@ -38,7 +38,7 @@ func get_score() -> float:
 		if found > -1:
 			tmp_served.remove(found)
 		else:
-			score -= 1.0 / total
+			score -= 2.0 / total
 	
 	score -= tmp_served.size() / total
 	
