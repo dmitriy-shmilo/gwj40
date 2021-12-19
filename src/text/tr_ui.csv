@@ -28,3 +28,26 @@ ui_tutorial,Tutorial,Как Играть
 ui_credits,Credits,Благодарности
 ui_back_to_title,Back,Назад
 ui_quit,Quit,Выход
+ui_credits_text,"[font=res://ui/font_large.tres]Font[/font]
+- [url=https://datagoblin.itch.io/monogram]monogram[/url] by datagoblin
+
+[font=res://ui/font_large.tres]Music[/font]
+ - [url=https://music.jonherbst.dev/]Jonpon[/url]
+
+[font=res://ui/font_large.tres]Art[/font]
+- [url=https://twitter.com/gabriel_damota]Gabriel 'Adamastor' Da Mota[/url]
+
+[font=res://ui/font_large.tres]Code[/font]
+- [url=https://dmitriy-shmilo.itch.io/]Dmitriy Shmilo[/url]
+- Game sources are avaiable on [url=https://github.com/dmitriy-shmilo/gogodot-2021]github[/url]\n","[font=res://ui/font_large.tres]Шрифт[/font]
+- [url=https://datagoblin.itch.io/monogram]monogram[/url], автор datagoblin
+
+[font=res://ui/font_large.tres]Музыка[/font]
+ - [url=https://music.jonherbst.dev/]Jonpon[/url]
+
+[font=res://ui/font_large.tres]Арт[/font]
+- [url=https://twitter.com/gabriel_damota]Gabriel 'Adamastor' Da Mota[/url]
+
+[font=res://ui/font_large.tres]Код[/font]
+- [url=https://dmitriy-shmilo.itch.io/]Dmitriy Shmilo[/url]
+- Исходники доступны на [url=https://github.com/dmitriy-shmilo/gogodot-2021]гитхабе[/url].\n"

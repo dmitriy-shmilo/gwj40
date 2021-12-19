@@ -1043,13 +1043,13 @@ tile_data = PoolIntArray( 0, 14, 0, 3, 14, 0, 65536, 13, 0, 65537, 10, 0, 65538,
 [node name="WindowSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 144, 16 )
 frames = SubResource( 81 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="WindowSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 176, 16 )
 frames = SubResource( 81 )
-frame = 12
+frame = 13
 playing = true
 
 [node name="Gui" type="CanvasLayer" parent="."]

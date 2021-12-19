@@ -11,36 +11,42 @@ margin_left = -64.0
 margin_top = -58.0
 margin_right = 64.0
 margin_bottom = 58.0
+custom_constants/separation = 6
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NewGameButton" type="Button" parent="."]
-margin_right = 128.0
+margin_right = 100.0
 margin_bottom = 20.0
+size_flags_horizontal = 0
 text = "ui_start_game"
 
 [node name="ContinueGameButton" type="Button" parent="."]
-margin_top = 24.0
-margin_right = 128.0
-margin_bottom = 44.0
+margin_top = 26.0
+margin_right = 127.0
+margin_bottom = 46.0
+size_flags_horizontal = 0
 text = "ui_continue_game"
 
 [node name="SettingsButton" type="Button" parent="."]
-margin_top = 48.0
-margin_right = 128.0
-margin_bottom = 68.0
+margin_top = 52.0
+margin_right = 81.0
+margin_bottom = 72.0
+size_flags_horizontal = 0
 text = "ui_settings"
 
 [node name="CreditsButton" type="Button" parent="."]
-margin_top = 72.0
-margin_right = 128.0
-margin_bottom = 92.0
+margin_top = 78.0
+margin_right = 74.0
+margin_bottom = 98.0
+size_flags_horizontal = 0
 text = "ui_credits"
 
 [node name="QuitButton" type="Button" parent="."]
-margin_top = 96.0
-margin_right = 128.0
-margin_bottom = 116.0
+margin_top = 104.0
+margin_right = 55.0
+margin_bottom = 124.0
+size_flags_horizontal = 0
 text = "ui_quit"

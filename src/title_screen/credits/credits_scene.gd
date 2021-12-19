@@ -3,7 +3,7 @@ class_name CreditsScene
 
 
 func _ready() -> void:
-	$CreditsText.bbcode_text = tr("txt_credits")
+	$PanelContainer/CreditsText.bbcode_text = tr("ui_credits_text")
 
 
 func _on_CreditsText_meta_clicked(meta):

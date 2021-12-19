@@ -32,9 +32,9 @@ __meta__ = {
 anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 0.0
-margin_top = -70.0
+margin_top = -74.0
 margin_right = 110.0
-margin_bottom = 71.0
+margin_bottom = 75.0
 size_flags_horizontal = 0
 
 [node name="NewGameButton" parent="TitleScene" index="0"]
@@ -42,24 +42,25 @@ margin_right = 110.0
 margin_bottom = 25.0
 
 [node name="ContinueGameButton" parent="TitleScene" index="1"]
-margin_top = 29.0
+margin_top = 31.0
 margin_right = 110.0
-margin_bottom = 54.0
+margin_bottom = 56.0
+size_flags_horizontal = 0
 
 [node name="SettingsButton" parent="TitleScene" index="2"]
-margin_top = 58.0
+margin_top = 62.0
 margin_right = 110.0
-margin_bottom = 83.0
+margin_bottom = 87.0
 
 [node name="CreditsButton" parent="TitleScene" index="3"]
-margin_top = 87.0
+margin_top = 93.0
 margin_right = 110.0
-margin_bottom = 112.0
+margin_bottom = 118.0
 
 [node name="QuitButton" parent="TitleScene" index="4"]
-margin_top = 116.0
+margin_top = 124.0
 margin_right = 110.0
-margin_bottom = 141.0
+margin_bottom = 149.0
 
 [node name="CreditsScene" parent="." instance=ExtResource( 6 )]
 visible = false
