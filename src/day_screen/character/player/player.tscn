@@ -454,7 +454,7 @@ script = ExtResource( 5 )
 position = Vector2( 0, -23 )
 texture = ExtResource( 4 )
 region_enabled = true
-region_rect = Rect2( 96, 0, 16, 16 )
+region_rect = Rect2( 112, 32, 16, 16 )
 
 [node name="BodySprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
