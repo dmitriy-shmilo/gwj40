@@ -2,6 +2,7 @@ extends CustomerState
 class_name CustomerWaitingState
 
 const MAX_ORDER_COUNT = 5
+const BASE_ITEM = preload("res://data/item/coffee.tres")
 
 var _current_wait_time = 0
 var _max_wait_time = 120.0
@@ -65,10 +66,10 @@ func is_interactive() -> bool:
 func _generate_order_items(player_has_stuff: bool) -> Array:
 	var possible_items = UserSaveData.stocks.items
 	var order = [
-		possible_items[0]
+		BASE_ITEM
 	]
 
-	if not UserSaveData.stocks.reserve(possible_items[0].id, 1):
+	if not UserSaveData.stocks.reserve(BASE_ITEM.id, 1):
 		return order if player_has_stuff else []
 
 	for i in range(MAX_ORDER_COUNT - 1):

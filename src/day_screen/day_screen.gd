@@ -4,7 +4,7 @@ class_name DayScreen
 const BASE_ITEM = preload("res://data/item/coffee.tres")
 const CUSTOMER = preload("res://day_screen/character/customer/customer.tscn")
 
-export(float) var day_length = 200.0
+export(float) var day_length = 120.0
 
 onready var _gui: Gui = $"Gui"
 onready var _camera: Camera2D = $"PlayerCamera"
