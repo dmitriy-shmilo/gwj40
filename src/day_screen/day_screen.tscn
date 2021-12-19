@@ -7,7 +7,7 @@
 [ext_resource path="res://day_screen/interactive/sugar_dispencer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://day_screen/gui.gd" type="Script" id=6]
 [ext_resource path="res://day_screen/gui/inventory.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/sound/freshly_ground_wip.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/sound/freshly_ground.ogg" type="AudioStream" id=8]
 [ext_resource path="res://assets/art/tilemap.png" type="Texture" id=9]
 [ext_resource path="res://day_screen/interactive/table.tscn" type="PackedScene" id=10]
 [ext_resource path="res://day_screen/interactive/seat.tscn" type="PackedScene" id=11]
@@ -1041,13 +1041,12 @@ tile_data = PoolIntArray( 0, 14, 0, 3, 14, 0, 65536, 13, 0, 65537, 10, 0, 65538,
 [node name="WindowSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 144, 16 )
 frames = SubResource( 48 )
-frame = 13
 playing = true
 
 [node name="WindowSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 176, 16 )
 frames = SubResource( 48 )
-frame = 7
+frame = 10
 playing = true
 
 [node name="Gui" type="CanvasLayer" parent="."]
@@ -1415,8 +1414,9 @@ region_enabled = true
 region_rect = Rect2( 96, 32, 16, 16 )
 
 [node name="Cups" type="Sprite" parent="YSort"]
-position = Vector2( 58, 49 )
+position = Vector2( 58, 56 )
 texture = SubResource( 62 )
+offset = Vector2( 0, -8 )
 region_enabled = true
 region_rect = Rect2( 80, 48, 32, 16 )
 
@@ -1530,6 +1530,7 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+bus = "Music"
 
 [node name="CrtOverlay" parent="." instance=ExtResource( 13 )]
 

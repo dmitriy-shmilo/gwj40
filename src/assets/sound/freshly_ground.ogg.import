@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/freshly_ground.ogg-6db0e48ae9635cb2713e1166a02afd5a.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/freshly_ground.ogg"
+dest_files=[ "res://.import/freshly_ground.ogg-6db0e48ae9635cb2713e1166a02afd5a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
