@@ -7,6 +7,7 @@
 [ext_resource path="res://day_screen/character/player/player.gd" type="Script" id=5]
 [ext_resource path="res://day_screen/state_machine.gd" type="Script" id=6]
 [ext_resource path="res://day_screen/character/player/player_idle_state.gd" type="Script" id=7]
+[ext_resource path="res://assets/art/progress_fill.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -441,11 +442,7 @@ height = 8.0
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 4 )
-region = Rect2( 22, 55, 3, 2 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 4 )
-region = Rect2( 23, 38, 1, 1 )
+region = Rect2( 96, 32, 16, 16 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 56, 42 )
@@ -521,14 +518,14 @@ z_index = 1000
 
 [node name="InteractionProgress" type="TextureProgress" parent="Node2D"]
 visible = false
-margin_left = 9.0
-margin_top = -13.0
-margin_right = 10.0
+margin_left = 6.0
+margin_top = -8.0
+margin_right = 22.0
 margin_bottom = 8.0
-value = 44.0
+value = 10.0
 texture_under = SubResource( 26 )
-texture_progress = SubResource( 27 )
-fill_mode = 3
+texture_progress = ExtResource( 8 )
+fill_mode = 4
 nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
