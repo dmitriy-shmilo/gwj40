@@ -33,20 +33,14 @@ margin_right = 128.0
 margin_bottom = 68.0
 text = "ui_settings"
 
-[node name="TutorialButton" type="Button" parent="."]
+[node name="CreditsButton" type="Button" parent="."]
 margin_top = 72.0
 margin_right = 128.0
 margin_bottom = 92.0
-text = "ui_tutorial"
-
-[node name="CreditsButton" type="Button" parent="."]
-margin_top = 96.0
-margin_right = 128.0
-margin_bottom = 116.0
 text = "ui_credits"
 
 [node name="QuitButton" type="Button" parent="."]
-margin_top = 120.0
+margin_top = 96.0
 margin_right = 128.0
-margin_bottom = 140.0
+margin_bottom = 116.0
 text = "ui_quit"

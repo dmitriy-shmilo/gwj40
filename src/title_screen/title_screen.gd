@@ -24,10 +24,6 @@ func _on_CreditsButton_pressed():
 	_transition_to(_credits_scene)
 
 
-func _on_TutorialButton_pressed():
-	_transition_to(_tutorial_scene)
-
-
 func _on_SettingsButton_pressed():
 	_transition_to(_settings_scene)
 

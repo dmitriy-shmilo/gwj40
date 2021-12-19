@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://title_screen/title/title_scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://title_screen/title_screen.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://title_screen/credits/credits_scene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/fader.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sound/title_orders.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/art/title.png" type="Texture" id=9]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -18,32 +19,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TitleScene" parent="." instance=ExtResource( 1 )]
-margin_top = -85.0
-margin_bottom = 85.0
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = -70.0
+margin_right = 110.0
+margin_bottom = 71.0
+size_flags_horizontal = 0
 
 [node name="NewGameButton" parent="TitleScene" index="0"]
+margin_right = 110.0
 margin_bottom = 25.0
 
 [node name="ContinueGameButton" parent="TitleScene" index="1"]
 margin_top = 29.0
+margin_right = 110.0
 margin_bottom = 54.0
 
 [node name="SettingsButton" parent="TitleScene" index="2"]
 margin_top = 58.0
+margin_right = 110.0
 margin_bottom = 83.0
 
-[node name="TutorialButton" parent="TitleScene" index="3"]
+[node name="CreditsButton" parent="TitleScene" index="3"]
 margin_top = 87.0
+margin_right = 110.0
 margin_bottom = 112.0
 
-[node name="CreditsButton" parent="TitleScene" index="4"]
+[node name="QuitButton" parent="TitleScene" index="4"]
 margin_top = 116.0
+margin_right = 110.0
 margin_bottom = 141.0
-
-[node name="QuitButton" parent="TitleScene" index="5"]
-margin_top = 145.0
-margin_bottom = 170.0
 
 [node name="CreditsScene" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -55,6 +71,7 @@ visible = false
 visible = false
 
 [node name="Fader" parent="." instance=ExtResource( 7 )]
+fade_in_duration = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -64,7 +81,6 @@ bus = "Music"
 [connection signal="pressed" from="TitleScene/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="TitleScene/ContinueGameButton" to="." method="_on_ContinueGameButton_pressed"]
 [connection signal="pressed" from="TitleScene/SettingsButton" to="." method="_on_SettingsButton_pressed"]
-[connection signal="pressed" from="TitleScene/TutorialButton" to="." method="_on_TutorialButton_pressed"]
 [connection signal="pressed" from="TitleScene/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="TitleScene/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="CreditsScene/BackToTitleButton" to="." method="_on_BackToTitleButton_pressed"]
