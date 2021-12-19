@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=34 format=2]
+[gd_resource type="Theme" load_steps=40 format=2]
 
 [ext_resource path="res://assets/art/ui.png" type="Texture" id=1]
 [ext_resource path="res://assets/monogram-extended.ttf" type="DynamicFontData" id=2]
@@ -81,6 +81,22 @@ region = Rect2( 16, 64, 16, 16 )
 
 [sub_resource type="StyleBoxEmpty" id=19]
 
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 1 )
+region = Rect2( 22, 85, 5, 5 )
+
+[sub_resource type="StyleBoxEmpty" id=35]
+
+[sub_resource type="StyleBoxEmpty" id=36]
+
+[sub_resource type="StyleBoxTexture" id=37]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 80, 16, 16 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 6.0
+margin_bottom = 7.0
+
 [sub_resource type="StyleBoxTexture" id=20]
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 16, 16 )
@@ -144,6 +160,24 @@ expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id=30]
 
+[sub_resource type="StyleBoxTexture" id=33]
+texture = ExtResource( 1 )
+region_rect = Rect2( 64, 80, 16, 16 )
+margin_left = 7.0
+margin_right = 6.0
+margin_top = 6.0
+margin_bottom = 7.0
+expand_margin_top = 6.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id=34]
+texture = ExtResource( 1 )
+region_rect = Rect2( 48, 80, 16, 16 )
+margin_left = 7.0
+margin_right = 6.0
+margin_top = 3.0
+margin_bottom = 3.0
+
 [sub_resource type="DynamicFont" id=31]
 font_data = ExtResource( 2 )
 
@@ -168,6 +202,13 @@ CheckBox/styles/hover = SubResource( 16 )
 CheckBox/styles/hover_pressed = SubResource( 17 )
 CheckBox/styles/normal = SubResource( 18 )
 CheckBox/styles/pressed = SubResource( 19 )
+HSlider/icons/grabber = SubResource( 38 )
+HSlider/icons/grabber_disabled = SubResource( 38 )
+HSlider/icons/grabber_highlight = SubResource( 38 )
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource( 35 )
+HSlider/styles/grabber_area_highlight = SubResource( 36 )
+HSlider/styles/slider = SubResource( 37 )
 Panel/styles/panel = SubResource( 20 )
 PanelContainer/styles/panel = SubResource( 20 )
 PopupPanel/styles/panel = SubResource( 20 )
@@ -183,3 +224,12 @@ TabContainer/styles/tab_disabled = SubResource( 28 )
 TabContainer/styles/tab_fg = SubResource( 29 )
 TextEdit/styles/normal = SubResource( 30 )
 TooltipPanel/styles/panel = SubResource( 20 )
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 33 )
+VScrollBar/styles/grabber_highlight = SubResource( 33 )
+VScrollBar/styles/grabber_pressed = SubResource( 33 )
+VScrollBar/styles/scroll = SubResource( 34 )
+VScrollBar/styles/scroll_focus = SubResource( 34 )
