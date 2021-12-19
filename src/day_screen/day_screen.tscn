@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://day_screen/day_screen.gd" type="Script" id=1]
 [ext_resource path="res://ui/default_theme.tres" type="Theme" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://day_screen/interactive/milk_dispencer.tscn" type="PackedScene" id=20]
 [ext_resource path="res://day_screen/interactive/ice_dispencer.tscn" type="PackedScene" id=21]
 [ext_resource path="res://day_screen/clutter/fireplace.tscn" type="PackedScene" id=22]
+[ext_resource path="res://day_screen/character/player/portrait1.tres" type="Texture" id=23]
+[ext_resource path="res://day_screen/character/player/portrait2.tres" type="Texture" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=48]
 points = PoolVector2Array( 16, 16, 6, 16, 6, 10, 16, 10 )
@@ -1041,13 +1043,13 @@ tile_data = PoolIntArray( 0, 14, 0, 3, 14, 0, 65536, 13, 0, 65537, 10, 0, 65538,
 [node name="WindowSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 144, 16 )
 frames = SubResource( 81 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="WindowSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 176, 16 )
 frames = SubResource( 81 )
-frame = 1
+frame = 12
 playing = true
 
 [node name="Gui" type="CanvasLayer" parent="."]
@@ -1246,7 +1248,7 @@ margin_left = 39.0
 margin_top = 4.0
 margin_right = 245.0
 margin_bottom = 20.0
-text = "123"
+text = "dialog text"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1317,10 +1319,12 @@ text = "ui_continue"
 [node name="Character1" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 72, 45 )
 camera_node = NodePath("../../PlayerCamera")
+portrait = ExtResource( 23 )
 
 [node name="Character2" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 118, 42 )
 camera_node = NodePath("../../PlayerCamera")
+portrait = ExtResource( 24 )
 
 [node name="BodySprite" parent="YSort/Character2" index="1"]
 texture = ExtResource( 16 )
@@ -1333,19 +1337,19 @@ parameters/playback = SubResource( 88 )
 position = Vector2( 0, -1 )
 rotation = 0.0
 
-[node name="IceDispencer" parent="YSort" instance=ExtResource( 21 )]
+[node name="IceDispencer" parent="YSort" groups=["dispensers"] instance=ExtResource( 21 )]
 position = Vector2( 95, 30 )
 
-[node name="CoffeeDispencer" parent="YSort" instance=ExtResource( 4 )]
+[node name="CoffeeDispencer" parent="YSort" groups=["dispensers"] instance=ExtResource( 4 )]
 position = Vector2( 23, 30 )
 
-[node name="SugarDispencer" parent="YSort" instance=ExtResource( 5 )]
+[node name="SugarDispencer" parent="YSort" groups=["dispensers"] instance=ExtResource( 5 )]
 position = Vector2( 8, 53 )
 
-[node name="MilkDispencer" parent="YSort" instance=ExtResource( 20 )]
+[node name="MilkDispencer" parent="YSort" groups=["dispensers"] instance=ExtResource( 20 )]
 position = Vector2( 56, 31 )
 
-[node name="CinnamonDispenser" parent="YSort" instance=ExtResource( 19 )]
+[node name="CinnamonDispenser" parent="YSort" groups=["dispensers"] instance=ExtResource( 19 )]
 position = Vector2( 9, 88 )
 
 [node name="Table2" parent="YSort" instance=ExtResource( 10 )]
@@ -1534,11 +1538,7 @@ points = PoolVector2Array( 83, 172, 83, 158, 168, 158, 168, 133, 168, 116 )
 width = 1.0
 
 [node name="CustomerSpawnTimer" type="Timer" parent="."]
-wait_time = 25.0
-autostart = true
-
-[node name="CustomerSpawnTimer2" type="Timer" parent="."]
-wait_time = 25.0
+wait_time = 20.0
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -1554,7 +1554,6 @@ bus = "Music"
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="Gui/PauseContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="timeout" from="CustomerSpawnTimer" to="." method="_on_CustomerSpawnTimer_timeout"]
-[connection signal="timeout" from="CustomerSpawnTimer2" to="." method="_on_CustomerSpawnTimer_timeout"]
 
 [editable path="Gui/Hud/Character2/Inventory"]
 [editable path="YSort/Character2"]

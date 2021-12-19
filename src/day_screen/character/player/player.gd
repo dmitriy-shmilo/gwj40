@@ -9,6 +9,7 @@ const PROGRESS_BAR_MULTIPLIER = 10.0
 export(bool) var selected = false setget set_selected
 export(bool) var interaction_progress_visible = false setget set_interaction_progress_visible
 export(NodePath) var camera_node = NodePath()
+export(Texture) var portrait
 
 onready var _selection_indicator: Sprite = $"SelectionIndicator"
 onready var _interaction_area: Area2D = $"InteractionArea"

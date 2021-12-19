@@ -28,7 +28,7 @@ onready var _seats = [
 
 var _current_cash: float = UserSaveData.current_cash
 var _selected_character: int = 0
-var _dialog_customer: Customer = null
+var _dialog_entity: Node = null
 var _current_time = 0.0
 var _current_customers = []
 var _day_ended = false
@@ -52,11 +52,17 @@ func _ready():
 	_camera.limit_left = rect.position.x * _floor_tilemap.cell_size.x
 	_camera.limit_bottom = (rect.position.y + rect.size.y) * _floor_tilemap.cell_size.y
 	_camera.limit_right = (rect.position.x + rect.size.x) * _floor_tilemap.cell_size.x
+	
+	for disp in get_tree().get_nodes_in_group("dispensers"):
+		var id = disp.get_node("InteractiveDispencer")
+		disp.get_node("InteractiveDispencer").connect("out_of_stock", self, "_on_dispenser_out_of_stock")
+		disp.get_node("InteractiveDispencer").connect("missing_base", self, "_on_dispenser_missing_base")
+		disp.get_node("InteractiveDispencer").connect("base_already_present", self, "_on_dispenser_base_already_present")
 
 
 func _process(delta: float) -> void:
-	if _dialog_customer != null and Input.is_action_just_pressed("interact"):
-		_dialog_customer = null
+	if _dialog_entity != null and Input.is_action_just_pressed("interact"):
+		_dialog_entity = null
 		_gui.hide_dialog()
 
 	if Input.is_action_just_pressed("next_char"):
@@ -103,14 +109,14 @@ func _on_customer_finished(customer: Customer, order: Order) -> void:
 
 
 func _on_customer_ordered(customer: Customer, text: String, order: Order) -> void:
-	_gui.show_dialog(text, order.ordered_items, customer)
-	_dialog_customer = customer
+	_gui.show_dialog(text, order.ordered_items, customer.get_portrait())
+	_dialog_entity = customer
 
 
 func _on_customer_unfocused(customer: Customer, player: Player) -> void:
-	if _dialog_customer == customer:
+	if _dialog_entity == customer:
 		_gui.hide_dialog()
-		_dialog_customer = null
+		_dialog_entity = null
 
 
 func _on_customer_left(customer: Customer) -> void:
@@ -137,6 +143,27 @@ func _on_character_inventory_changed(sender: Player, inventory: Array) -> void:
 	var index = _characters.find(sender)
 	assert(index > -1)
 	_gui.update_inventory(index, inventory)
+
+
+func _on_dispenser_out_of_stock(dispencer: InteractiveDispencer) -> void:
+	_dialog_entity = dispencer
+	_gui.show_dialog(tr("msg_out_of_stock"),
+		[dispencer.item],
+		_characters[_selected_character].portrait)
+
+
+func _on_dispenser_missing_base(dispencer: InteractiveDispencer) -> void:
+	_dialog_entity = dispencer
+	_gui.show_dialog(tr("msg_missing_base"),
+		[BASE_ITEM],
+		_characters[_selected_character].portrait)
+
+
+func _on_dispenser_base_already_present(dispencer: InteractiveDispencer) -> void:
+	_dialog_entity = dispencer
+	_gui.show_dialog(tr("msg_base_already_present"),
+		[BASE_ITEM],
+		_characters[_selected_character].portrait)
 
 
 func _on_QuitButton_pressed():

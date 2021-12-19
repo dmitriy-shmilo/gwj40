@@ -47,9 +47,9 @@ func update_inventory(index: int, inventory: Array) -> void:
 	_inventories[index].set_items(inventory)
 
 
-func show_dialog(text: String, items: Array, customer: Customer) -> void:
+func show_dialog(text: String, items: Array, portrait: Texture) -> void:
 	_dialog_text.text = tr(text)
-	_dialog_portrait.texture = customer.get_portrait()
+	_dialog_portrait.texture = portrait
 	_dialog_inventory.set_items(items)
 	_dialog_tween.stop_all()
 	_dialog_tween.interpolate_property(_dialog_container, "modulate:a", _dialog_container.modulate.a, 1.0, 0.25)

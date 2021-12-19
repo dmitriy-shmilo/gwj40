@@ -1,9 +1,14 @@
 extends InteractiveItem
 class_name InteractiveDispencer
 
-export(Resource) var item
-export (NodePath) var sprite_path
+const BASE_ITEM = preload("res://data/item/coffee.tres")
 
+signal base_already_present(source)
+signal missing_base(source)
+signal out_of_stock(source)
+
+export(Resource) var item
+export(NodePath) var sprite_path
 
 var _sprite: Sprite
 
@@ -17,17 +22,24 @@ func can_interact(src: Node) -> bool:
 	if not is_active:
 		return false
 
-	# TODO: indicate out of stock
 	if UserSaveData.stocks.get_stock(item.id) <= 0:
+		emit_signal("out_of_stock", self)
 		return false
 
-	if not item.unique:
-		return true
+	var base_present = false
 	
 	for i in character.get_inventory():
-		if i.id == item.id:
-			return false
+		if i.id == BASE_ITEM.id:
+			base_present = true
+
+	if item.id == BASE_ITEM.id and base_present:
+		emit_signal("base_already_present", self)
+		return false
 	
+	if item.id != BASE_ITEM.id and not base_present:
+		emit_signal("missing_base", self)
+		return false
+
 	return true
 
 
