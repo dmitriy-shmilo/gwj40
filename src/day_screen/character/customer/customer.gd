@@ -7,6 +7,13 @@ enum Mood {
 	normal = 2,
 	unhappy = 3
 }
+
+const PORTRAIT_TEXTURES = [
+	preload("res://day_screen/character/customer/portrait1.tres"),
+	preload("res://day_screen/character/customer/portrait2.tres"),
+	preload("res://day_screen/character/customer/portrait3.tres"),
+	preload("res://day_screen/character/customer/portrait4.tres")
+]
 const MOOD_TEXTURES = [
 	preload("res://day_screen/character/customer/mood_new.tres"),
 	preload("res://day_screen/character/customer/mood_happy.tres"),
@@ -58,6 +65,10 @@ func show_mood(mood: int, temporary: bool) -> void:
 func clear_mood() -> void:
 	_tween.interpolate_property(_mood_icon, "modulate:a", 1.0, 0.0, 0.25)
 	_tween.start()
+
+
+func get_portrait() -> Texture:
+	return PORTRAIT_TEXTURES[texture_index]
 
 
 func _on_InteractiveReceiver_interaction_finished(source) -> void:

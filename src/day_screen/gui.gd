@@ -10,6 +10,7 @@ signal dialog_shown
 onready var _dialog_tween: Tween = $"DialogTween"
 onready var _dialog_container: Panel = $"DialogContainer"
 onready var _dialog_text: RichTextLabel = $"DialogContainer/Text"
+onready var _dialog_portrait: TextureRect = $"DialogContainer/PortraitBackground/Portrait"
 onready var _dialog_inventory: InventoryGui = $"DialogContainer/Inventory"
 onready var _time_progress: TextureProgress = $"Hud/TimeProgress"
 onready var _cash_label: Label = $"Hud/CashLabel"
@@ -46,9 +47,9 @@ func update_inventory(index: int, inventory: Array) -> void:
 	_inventories[index].set_items(inventory)
 
 
-# TODO: pass portrait somehow
-func show_dialog(text: String, items: Array) -> void:
+func show_dialog(text: String, items: Array, customer: Customer) -> void:
 	_dialog_text.text = tr(text)
+	_dialog_portrait.texture = customer.get_portrait()
 	_dialog_inventory.set_items(items)
 	_dialog_tween.stop_all()
 	_dialog_tween.interpolate_property(_dialog_container, "modulate:a", _dialog_container.modulate.a, 1.0, 0.25)

@@ -103,7 +103,7 @@ func _on_customer_finished(customer: Customer, order: Order) -> void:
 
 
 func _on_customer_ordered(customer: Customer, text: String, order: Order) -> void:
-	_gui.show_dialog(text, order.ordered_items)
+	_gui.show_dialog(text, order.ordered_items, customer)
 	_dialog_customer = customer
 
 
