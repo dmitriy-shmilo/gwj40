@@ -13,5 +13,5 @@ id = 2
 texture = SubResource( 1 )
 unique = false
 name = "item_sugar"
-sell_cost = 1.0
-restock_cost = 0.5
+sell_cost = 0.5
+restock_cost = 0.25

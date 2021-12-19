@@ -18,7 +18,7 @@ position = Vector2( 0, -15 )
 texture = SubResource( 1 )
 
 [node name="InteractiveDispencer" parent="." instance=ExtResource( 1 )]
-interaction_time = 1.0
+interaction_time = 10.0
 item = ExtResource( 4 )
 sprite_path = NodePath("../Sprite")
 

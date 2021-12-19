@@ -19,7 +19,7 @@ region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="InteractiveDispencer" parent="." instance=ExtResource( 1 )]
 position = Vector2( -7, 0 )
-interaction_time = 2.0
+interaction_time = 1.0
 item = ExtResource( 4 )
 sprite_path = NodePath("../Sprite")
 
